@@ -11,7 +11,7 @@ import tinkerer.paths
 project = 'Life is like a development.'                   
 
 # Change this to the tagline of your blog
-tagline = u'ただの備忘録'                  
+tagline = u'メモ、備忘録'                  
 
 # Change this to the description of your blog
 description = ''
@@ -49,7 +49,7 @@ html_theme_options = { }
 rss_service = None
 
 # Number of blog posts per page
-posts_per_page = 10
+posts_per_page = 1
 
 # **************************************************************
 # Edit lines below to further customize Sphinx build
@@ -64,6 +64,10 @@ templates_path = ['_templates']
 # Add other static paths here
 html_static_path = ['_static', tinkerer.paths.static]
 
+# Custom css
+def setup(app):
+    app.add_stylesheet('custom.css')
+
 # Add other theme paths here
 html_theme_path = ['_themes', tinkerer.paths.themes]                 
 
@@ -72,7 +76,7 @@ exclude_patterns = ["drafts/*", "_templates/*"]
 
 # Add templates to be rendered in sidebar here
 html_sidebars = {
-    "**": ["gravatar.html", "twitter.html","recent.html", "categories.html"]
+    "**": ["gravatar.html", "twitter.html","recent.html", "tags.html"]
 }
 
 # **************************************************************
