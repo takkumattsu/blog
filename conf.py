@@ -25,6 +25,9 @@ copyright = '2013, ' + author
 # Change this to your blog root URL (required for RSS feed)
 website = 'http://www.nanao-a.com'                              
 
+# Language
+language = 'ja'
+
 # **************************************************************
 # More tweaks you can do
 # **************************************************************
@@ -36,7 +39,7 @@ disqus_shortname = None
 html_favicon = 'tinkerer.ico'           
 
 # Pick another Tinkerer theme or use your own
-html_theme = "modern5"
+html_theme = "minimal"
 
 # Theme-specific options, see docs
 html_theme_options = { }                                  
@@ -69,7 +72,7 @@ exclude_patterns = ["drafts/*", "_templates/*"]
 
 # Add templates to be rendered in sidebar here
 html_sidebars = {
-    "**": ["recent.html", "searchbox.html"]
+    "**": ["gravatar.html", "twitter.html","recent.html", "categories.html"]
 }
 
 # **************************************************************
