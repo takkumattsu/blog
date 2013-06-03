@@ -28,6 +28,9 @@ website = 'http://www.nanao-a.com'
 # Language
 language = 'ja'
 
+# pygment
+pygments_style = 'native'
+
 # **************************************************************
 # More tweaks you can do
 # **************************************************************
