@@ -4,6 +4,7 @@
 {{ content }}
 
 .. author:: {{ author }}
+.. category:: {{ category }}
 .. tags:: {{ tags }}
 .. comments::
 

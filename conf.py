@@ -36,7 +36,7 @@ pygments_style = 'native'
 # **************************************************************
 
 # Add your Disqus shortname to enable comments powered by Disqus
-disqus_shortname = None                                   
+disqus_shortname = 'takkumattsu'
 
 # Change your favicon (new favicon goes in _static directory)
 html_favicon = 'tinkerer.ico'           
@@ -79,7 +79,7 @@ exclude_patterns = ["drafts/*", "_templates/*"]
 
 # Add templates to be rendered in sidebar here
 html_sidebars = {
-    "**": ["gravatar.html", "twitter.html","recent.html", "tags.html"]
+    "**": ["gravatar.html", "twitter.html","recent.html", "categories.html", "tags.html"]
 }
 
 # **************************************************************
