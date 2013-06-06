@@ -10,7 +10,8 @@ html {
 h2.tagline {
     font-size: 110%;
     margin: 0px;
-    color: #778899
+    color: #778899;
+    padding-bottom: 1em;
 }
 
 div.footer {
@@ -33,4 +34,19 @@ div.page_nav {
     width: 100%;
     padding-top:0.2em;
     padding-bottom:0.2em
+}
+
+div.highlight {
+    padding: 0.001em;
+    padding-left: 0.5em;
+    margin: 0.2em;
+    line-height: 1.2em;
+}
+
+div.gravatar {
+    text-align:center;
+}
+
+div.header {
+     border-bottom: 1px solid gray;
 }
