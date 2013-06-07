@@ -42,7 +42,7 @@ disqus_shortname = 'takkumattsu'
 html_favicon = 'tinkerer.ico'           
 
 # Pick another Tinkerer theme or use your own
-html_theme = "minimal"
+html_theme = "custom_minimal"
 
 # Theme-specific options, see docs
 html_theme_options = { }                                  
@@ -79,7 +79,7 @@ exclude_patterns = ["drafts/*", "_templates/*"]
 
 # Add templates to be rendered in sidebar here
 html_sidebars = {
-    "**": ["gravatar.html", "twitter.html","recent.html", "categories.html", "tags.html"]
+    "**": ["gravatar.html", "twitter.html","recent.html", "categories.html", "tags.html" ]
 }
 
 # **************************************************************
