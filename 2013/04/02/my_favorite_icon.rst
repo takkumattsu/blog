@@ -22,7 +22,7 @@
 .. image:: ../../../_image/my_icon.png
    :scale: 20%
 
-とても満足！Gravataに登録してGithubもイイ感じに
+とても満足！Gravatarに登録してGithubもイイ感じに
 
 .. author:: default
 .. categories:: その他
