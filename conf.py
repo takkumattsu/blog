@@ -39,7 +39,7 @@ pygments_style = 'native'
 disqus_shortname = 'takkumattsu'
 
 # Change your favicon (new favicon goes in _static directory)
-html_favicon = 'tinkerer.ico'           
+html_favicon = 'tinkerer.ico'
 
 # Pick another Tinkerer theme or use your own
 html_theme = "custom_minimal"
