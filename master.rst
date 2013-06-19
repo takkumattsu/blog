@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2013/06/20/use_tinkerer
    2013/06/20/gitlab_push_error
    2013/06/20/gitlab_init_script
    2013/05/26/gitlab5_1_for_5_2

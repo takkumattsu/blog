@@ -2,6 +2,7 @@
 
 import tinkerer
 import tinkerer.paths        
+import sys, os
 
 # **************************************************************
 # TODO: Edit the lines below
@@ -59,7 +60,17 @@ posts_per_page = 1
 # **************************************************************
 
 # Add other Sphinx extensions here
-extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus', 'sphinxcontrib.twitter'] 
+extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus', 'sphinxcontrib.twitter', 'sphinxcontrib.blockdiag'] 
+
+# Fontpath for blockdiag (truetype font)
+current_dir = os.path.abspath(os.path.dirname(unicode(__file__)))
+my_fonts_path = current_dir + '/fonts/TakaoGothic.ttf'
+
+blockdiag_fontpath = [ my_fonts_path, # my setting
+                       'C:\Windows\Fonts\msmincho.ttc', # for Windows
+                       '/Library/Fonts/Osaka.ttf', # for Mac OS
+                       '/usr/share/fonts/truetype/ipafont/ipagp.ttf', # for Linux
+                     ]
 
 # Add other template paths here
 templates_path = ['_templates']
