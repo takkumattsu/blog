@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2013/06/20/gitlab_init_script
    2013/05/26/gitlab5_1_for_5_2
    2013/05/26/gitlab5_0_for_5_1
    2013/05/12/use_gitlab
