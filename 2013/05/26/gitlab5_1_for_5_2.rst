@@ -300,6 +300,30 @@ issueみたけど、当てはまるのなさそうな感じ
 
 うーむ、Sidekiqあたりで変更が入っているけどなんでだろう。issueでtmp/pids/sidekiq.pidのパーミッションエラーっていうのがあって似たような対処してたけどそれかな？
 
+**追記**
+
+上の手順で
+
+.. code-block:: bash
+
+ Running? ... no
+   Try fixing it:
+   sudo -u git -H bundle exec rake sidekiq:start RAILS_ENV=production
+   For more information see:
+   doc/install/installation.md in section "Install Init Script"
+   see log/sidekiq.log for possible errors
+   Please fix the error above and rerun the checks.
+
+となっていて
+
+.. code-block:: bash
+
+ bundle exec rake sidekiq:start RAILS_ENV=production
+
+を実行していなかったことが原因だったぽい
+
+上記を実行しているのがinitスクリプトというのが真相かな
+
 |
 
 ----
