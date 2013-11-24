@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2013/11/25/sphinx_hackthon
    2013/06/24/teraterm_macro
    2013/06/23/tinkerer1_1_tinkerer1_2
    2013/06/20/use_tinkerer

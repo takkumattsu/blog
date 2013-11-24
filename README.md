@@ -5,6 +5,19 @@ Tinkererとは？
 Sphinxを利用したブログツール。reStructuredTextで書ける！
 詳しくは[公式ページ](http://tinkerer.me/ "Tinkerer")
 
+## 利用しているextension
+
+* sphinxcontrib.twitter
+
+``bash
+pip install sphinxcontrib.twitter
+``
+
+* sphinxcontrib.gist
+
+``bash
+pip install sphinxcontrib.gist
+``
 
 ## blog作成
 
