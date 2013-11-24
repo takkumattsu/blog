@@ -11,6 +11,8 @@ bundleがないって怒られる
 
 パスが通ってないのか？
 
+.. more::
+
 .. code-block:: bash
 
  which bundle

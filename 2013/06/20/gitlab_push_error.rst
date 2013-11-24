@@ -11,6 +11,8 @@ pushすると以下のようなエラーがでる
  Pushing to ssh://git@www.example.com:XXXX/hoge.git
  fatal: The remote end hung up unexpectedly
 
+.. more::
+
 原因
  /home/git/gitlab-shell/config.ymlのgitlab_urlが違っていた。自分はポートを変更していたのでそこを含めて記述しないといけなかった
 

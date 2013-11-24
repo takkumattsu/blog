@@ -7,6 +7,8 @@ TinkererとはSphinxでブログを作成するツール。
 
 もともとWordPressを利用していたんだけど、html形式？WYSIWYGモード？とかに慣れなくて微妙に思っていた。
 
+.. more::
+
 `numa08 <https://twitter.com/numa08>`_ がブログをはてなに移したときに
 
  `Markdown いいね！！`

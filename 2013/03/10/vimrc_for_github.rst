@@ -4,6 +4,8 @@
 .. image:: ../../../_image/vim_log.png
    :scale: 50%
 
+.. more::
+
 |
 
 githubの練習を兼ねてアップ

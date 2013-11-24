@@ -3,6 +3,8 @@
 
 前から何かしらオリジナルアイコンがほしいなーと思っていたところにVim関連のツイートに乗って以下が目に入りました。
 
+.. more::
+
 .. tweet:: https://twitter.com/supermomonga/status/253039737508622337
 
 |
