@@ -70,6 +70,7 @@ blockdiag_fontpath = [ my_fonts_path, # my setting
                        'C:\Windows\Fonts\msmincho.ttc', # for Windows
                        '/Library/Fonts/Osaka.ttf', # for Mac OS
                        '/usr/share/fonts/truetype/ipafont/ipagp.ttf', # for Linux
+                       '/usr/share/fonts/ipa-gothic/ipag.ttf ', # Sientific Linux
                      ]
 
 # Add other template paths here
