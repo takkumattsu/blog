@@ -30,7 +30,7 @@ website = 'http://www.nanao-a.com'
 language = 'ja'
 
 # pygment
-pygments_style = 'native'
+pygments_style = 'emacs'
 
 # **************************************************************
 # More tweaks you can do
