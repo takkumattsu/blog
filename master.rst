@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2014/05/18/nginx_gitlab_error
    2013/11/27/open_xcode_from_command
    2013/11/25/sphinx_hackthon
    2013/06/24/teraterm_macro
