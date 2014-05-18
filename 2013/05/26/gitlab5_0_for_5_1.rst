@@ -189,9 +189,7 @@ Apacheの設定
  #
  Include conf.d/*.conf
 
-Include conf.d/*.confはデフォルトで有効になっている気がする
-
-.. /*
+Include conf.d/.confはデフォルトで有効になっている気がする
 
 ---------
 再起動
