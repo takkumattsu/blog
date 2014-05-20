@@ -94,6 +94,6 @@ jenkinsのlocaleの設定がLANG=Cだったためエラーになっていたと�
 
 
 .. author:: default
-.. categories:: jenkins tinkerer
-.. tags:: jenkins tinkerer
+.. categories:: Tinkerer
+.. tags:: Tinkerer
 .. comments::
