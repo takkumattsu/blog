@@ -15,6 +15,7 @@ Sphinxのスペシャリストが揃う「新宿Bookathon」で聞いてみた�
 
 
 .. image:: ../../../_image/jenkins_error.png
+ :scale: 50%
 
 ======
 原因
