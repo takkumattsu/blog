@@ -43,7 +43,7 @@ disqus_shortname = 'takkumattsu'
 html_favicon = ''
 
 # Pick another Tinkerer theme or use your own
-html_theme = "dark"
+html_theme = 'modern5'
 
 # Theme-specific options, see docs
 html_theme_options = { }                                  
