@@ -44,6 +44,6 @@ nginxへ移行した後にgitlabのリポジトリをcloneしてくると以下�
 上記インストール後、nginxを再起動したところhttp経由でもcloneできるようになりました。
 
 .. author:: default
-.. categories:: gitlab
-.. tags:: gitlab
+.. categories:: Gitlab
+.. tags:: Gitlab
 .. comments::
