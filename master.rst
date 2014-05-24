@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2014/05/25/xcode_colorlog_macro
    2014/05/22/gitlab_ssl_error
    2014/05/20/tinkerer_jenkins_error
    2014/05/18/nginx_gitlab_error
