@@ -1,5 +1,5 @@
-外部出力(AirPlayやHDMI)を検出する方法
-=======================================
+iOSで外部出力(AirPlayやHDMI)を検出する方法
+===========================================
 
 AVPlayerのexternalPlaybackActiveを利用せずに外部出力を検出する方法を調べることがあったのでメモしておきます。
 
@@ -9,7 +9,7 @@ AVPlayerのexternalPlaybackActiveを利用せずに外部出力を検出する�
 AVPlyaerを利用する方法
 =======================
 
-以下のようにAVPlayerのプロパティを利用すれば外部出力の検出できます。
+以下のようにAVPlayerのプロパティを利用すれば外部出力を検出することができます。
 
 `参考:AVPlayer Class Reference <https://developer.apple.com/library/ios/documentation/AVFoundation/Reference/AVPlayer_Class/Chapters/Reference.html#//apple_ref/occ/instp/AVPlayer/externalPlaybackActive>`_
 
