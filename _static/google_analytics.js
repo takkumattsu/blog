@@ -1,4 +1,6 @@
 var _gaq = _gaq || [];
+var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+_gaq.push(['_require', 'inpage_linkid', pluginUrl]);
 _gaq.push(['_setAccount', 'UA-38618248-1']);
 _gaq.push(['_trackPageview']);
 
