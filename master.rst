@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2014/08/13/replace_command
    2014/07/26/ios_external_output_detect
    2014/05/25/xcode_colorlog_macro
    2014/05/22/gitlab_ssl_error
