@@ -8,12 +8,12 @@ About
 本サイトについて
 -----------------
 
-TakkuMattsuの備忘録
+主にiOS系の備忘録をめもめもしてます
 
 私について
 -----------
 
-バイクが好きです
+.. takkumattsu:: バイクが好きです
 
 .. image:: ../_image/profile.png
 

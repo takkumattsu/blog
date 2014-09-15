@@ -60,7 +60,7 @@ posts_per_page = 10
 # **************************************************************
 
 # Add other Sphinx extensions here
-extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus', 'sphinxcontrib.twitter', 'sphinxcontrib.blockdiag', 'sphinxcontrib.gist'] 
+extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus', 'sphinxcontrib.twitter', 'sphinxcontrib.blockdiag', 'sphinxcontrib.gist', 'sphinxjp.usaturn'] 
 
 # Fontpath for blockdiag (truetype font)
 current_dir = os.path.abspath(os.path.dirname(unicode(__file__)))
@@ -91,7 +91,7 @@ exclude_patterns = ["drafts/*", "_templates/*"]
 
 # Add templates to be rendered in sidebar here
 html_sidebars = {
-    "**": ["gravatar.html", "twitter.html","recent.html", "categories.html", "tags.html" ]
+    "**": ["gravatar.html", "recent.html", "categories.html", "tags.html" ]
 }
 
 # **************************************************************
