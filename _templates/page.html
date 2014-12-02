@@ -15,7 +15,11 @@
     <meta property="og:title" content="{{ shorttitle }}" />
     <meta property="og:description" content="{{ title|striptags|e }}" />
     <meta property="og:url" content="http://www.nanao-a.com/blog/html/{{ pagename }}{{ file_suffix }}" />
-    <meta property="og:image" content="http://www.nanao-a.com/_image/ogp/lld.png" />
+    {% if title == 'ゆゆ式 Advent Calender 2014 3日目:メガネゆずこ' %}
+        <meta property="og:image" content="http://www.nanao-a.com/_image/yuyushiki_ac/megane_yuzuko01.png" />
+    {% else %}
+        <meta property="og:image" content="http://www.nanao-a.com/_image/ogp/lld.png" />
+    {% endif %}
 {% endblock -%}
 
 {% set script_files = script_files + ["_static/google_analytics.js"] %}

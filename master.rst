@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2014/12/02/yuyushiki_advent_calender2014
    2014/11/16/my_homebrew_formula
    2014/09/01/objc_category_property_of_primiteve
    2014/08/13/replace_command
