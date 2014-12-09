@@ -12,6 +12,8 @@
 {% endblock %}
 
 {%- block extrahead -%}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@NorsteinBekkler" />
     <meta property="og:title" content="{{ shorttitle }}" />
     <meta property="og:description" content="{{ title|striptags|e }}" />
     <meta property="og:url" content="http://www.nanao-a.com/blog/html/{{ pagename }}{{ file_suffix }}" />
