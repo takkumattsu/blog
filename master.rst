@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2015/05/30/patisserie_cafe_aminchi
    2015/01/19/gitlab7_5_for_7_6
    2014/12/02/yuyushiki_advent_calender2014
    2014/11/16/my_homebrew_formula

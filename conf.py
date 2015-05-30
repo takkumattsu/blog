@@ -21,7 +21,7 @@ description = ''
 author = 'TakkuMattsu'
 
 # Change this to your copyright string
-copyright = '2013,2014 ' + author         
+copyright = '2013-2015 ' + author         
 
 # Change this to your blog root URL (required for RSS feed)
 website = 'http://www.nanao-a.com'                              
