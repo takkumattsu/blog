@@ -60,7 +60,7 @@ posts_per_page = 10
 # **************************************************************
 
 # Add other Sphinx extensions here
-extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus', 'sphinxcontrib.twitter', 'sphinxcontrib.blockdiag', 'sphinxcontrib.gist', 'sphinxjp.usaturn'] 
+extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus', 'sphinxcontrib.twitter', 'sphinxcontrib.blockdiag', 'sphinxcontrib.gist', 'sphinxjp.usaturn', 'sphinxcontrib.slide'] 
 
 # Fontpath for blockdiag (truetype font)
 current_dir = os.path.abspath(os.path.dirname(unicode(__file__)))
