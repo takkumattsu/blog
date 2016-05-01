@@ -7,17 +7,17 @@ Sphinxを利用したブログツール。reStructuredTextで書ける！
 
 ## 利用しているextension
 
-* sphinxcontrib.twitter
+### sphinxcontrib.twitter
 
-``bash
+```bash
 pip install sphinxcontrib.twitter
-``
+```
 
-* sphinxcontrib.gist
+### sphinxcontrib.gist
 
-``bash
+```bash
 pip install sphinxcontrib.gist
-``
+```
 
 ## blog作成
 
