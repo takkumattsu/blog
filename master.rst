@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2016/07/02/the_reason_i_buy_a_souvenir_at_the_travel
    2015/12/02/yuyushiki_advent_calender2015
    2015/11/27/ci_daberi_night
    2015/05/30/patisserie_cafe_aminchi
