@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2017/12/03/gameboy_advent_calender2017
    2017/12/01/yuyushiki_advent_calender2017
    2016/12/02/yuyushiki_advent_calender2016
    2016/07/02/the_reason_i_buy_a_souvenir_at_the_travel
