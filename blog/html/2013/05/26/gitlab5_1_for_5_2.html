@@ -1,0 +1,412 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>Gitlabを5.1から5.2へあげてみた &mdash; Life is like a development.</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/modern5.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" /><link rel="stylesheet" href="../../../_static/usaturn.css" type="text/css" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="Gitlabを5.0から5.1にあげてみた" href="gitlab5_0_for_5_1.html" /><link rel="prev" title="Gitlabの/etc/init.d/gitlabについて" href="../../06/20/gitlab_init_script.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script><script type="text/javascript" src="../../../_static/translations.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script><meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@NorsteinBekkler" />
+    <meta property="og:title" content="Life is like a development." />
+    <meta property="og:description" content="Gitlabを5.1から5.2へあげてみた" />
+    <meta property="og:url" content="http://www.nanao-a.com/blog/html/2013/05/26/gitlab5_1_for_5_2.html" />
+    
+        <meta property="og:image" content="http://www.nanao-a.com/_image/ogp/lld.png" />
+    
+</head>
+    <body role="document">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header role="banner">
+            <hgroup>
+              <h1><a href="../../../index.html">Life is like a development.</a></h1><h2>メモ、備忘録</h2></hgroup>
+          </header>
+      <nav role="navigation">
+            <ul><li class="quicklink"><div class="rss">
+        <a href="../../../rss.html" title="Subscribe via RSS"><span class="fa fa-lg fa-rss"></span></a>
+    </div></li><li class="main-nav">
+                  <a href="../../../index.html">ホーム</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../../../pages/about.html">About</a>
+                </li>
+              </ul>
+          </nav><div class="main-container" role="main"><div class="main wrapper body clearfix"><article role="article"><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../../06/20/gitlab_init_script.html">Gitlabの/etc/init.d/gitlabについて</a></li>
+            <li class="right"><a href="gitlab5_0_for_5_1.html">Gitlabを5.0から5.1にあげてみた</a> &raquo; </li>
+        </ul>
+    <div class="timestamp postmeta">
+            <span>5月 26, 2013</span>
+        </div>
+    
+        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">ツイート</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+    <div class="section" id="gitlab5-15-2">
+<h1>Gitlabを5.1から5.2へあげてみた</h1>
+<p>前回の段階で5.2までリリースされていたけどバージョンアップは一つ一つあげていかないといけないのでひとまず5.1にしました。</p>
+<p>そして今回は5.2へのバージョンアップ。</p>
+<p><strong>結論から言うとはまりまくった</strong></p>
+<p>何はともあれ手順はきっちりと記載されているGitlab。すばらしいね！</p>
+<div id="more"> </div><div class="section" id="id1">
+<h2>手順メモ</h2>
+<p>5.1から5.2へのアップグレードの手順は <a class="reference external" href="https://github.com/gitlabhq/gitlabhq/blob/master/doc/update/5.1-to-5.2.md">ここ</a></p>
+<div class="section" id="stop-server">
+<h3>Stop server</h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#sudo service gitlab stop</span>
+/etc/init.d/gitlab start
+</pre></div>
+</div>
+<p>自分はなれている下に書いてあるコマンドで実行</p>
+</div>
+<div class="section" id="get-latest-code">
+<h3>Get latest code</h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> /home/git/gitlab
+sudo -u git -H git fetch
+sudo -u git -H git checkout 5-2-stable
+</pre></div>
+</div>
+<p>上記を実行すると以下のようなエラーがでる</p>
+<div class="highlight-bash"><div class="highlight"><pre>error: Your <span class="nb">local </span>changes to the following files would be overwritten by checkout:
+        db/schema.rb
+Please, commit your changes or stash them before you can switch branches.
+Aborting
+</pre></div>
+</div>
+<p>以下を参考</p>
+<p><a class="reference external" href="http://d.hatena.ne.jp/koba04/20110130/1296377653">http://d.hatena.ne.jp/koba04/20110130/1296377653</a></p>
+<p>コミットしていない変更を退避しないといけないらしい。まだgitのことわかっていないな...</p>
+<p>以下を実施</p>
+<div class="highlight-bash"><div class="highlight"><pre>git stash
+git checkout master
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-gitlab-shell">
+<h3>Update gitlab-shell</h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> /home/git/gitlab-shell
+sudo -u git -H git fetch
+sudo -u git -H git checkout v1.4.0
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-libs-migrations-etc">
+<h3>Install libs, migrations etc</h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> /home/git/gitlab
+sudo -u git -H bundle install --without development <span class="nb">test </span>postgres --deployment
+sudo -u git -H bundle <span class="nb">exec </span>rake db:migrate <span class="nv">RAILS_ENV</span><span class="o">=</span>production
+</pre></div>
+</div>
+<p>上記のsudo -u git -H bundle install ?without development test postgres ?deploymentで以下のエラー</p>
+<p>yumでは落として来れないのでソースからビルドしてインストール。いったん今入っているのをyum removeで消した方がいいかも</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> /usr/local/src/
+wget http://download.icu-project.org/files/icu4c/4.2.1/icu4c-4_2_1-src.tgz
+<span class="nb">cd </span>icu
+./configure
+make
+make install
+</pre></div>
+</div>
+<p>インストールするディレクトリは適当に</p>
+<p>ふたたびsudo -u git -H bundle install ?without development test postgres ?deployment実行</p>
+</div>
+<div class="section" id="start-application">
+<h3>Start application</h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c">#sudo service gitlab start</span>
+/etc/init.d/gitlab start
+</pre></div>
+</div>
+<p>ふへ、ちょろいな</p>
+<a class="reference internal image-reference" href="../../../_images/ServiceTemporarilyUnavailable.png"><img alt="../../../_images/ServiceTemporarilyUnavailable.png" src="../../../_images/ServiceTemporarilyUnavailable.png" style="width: 477.6px; height: 68.4px;" /></a>
+<p><strong>! ?</strong></p>
+<p>とりあえずGitlabのインストールがうまくいっているかチェックする。 <a class="reference external" href="https://github.com/gitlabhq/gitlabhq/blob/master/doc/install/installation.md#check-application-status">ここ参照</a></p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo -u git -H bundle <span class="nb">exec </span>rake gitlab:check <span class="nv">RAILS_ENV</span><span class="o">=</span>production
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre>Init script up-to-date? ... no
+  Try fixing it:
+  Redownload the init script
+  For more information see:
+  doc/install/installation.md in section <span class="s2">&quot;Install Init Script&quot;</span>
+  Please fix the error above and rerun the checks.
+Projects have satellites? ...
+beautys4p-doc ... yes
+sandbox ... yes
+Redis version &gt;<span class="o">=</span> 2.0.0? ... yes
+Your git bin path is <span class="s2">&quot;/usr/bin/git&quot;</span>
+Git version &gt;<span class="o">=</span> 1.7.10 ? ... no
+  Try fixing it:
+  Update your git to a version &gt;<span class="o">=</span> 1.7.10 from 1.7.4
+  Please fix the error above and rerun the checks.
+
+Checking GitLab ... Finishe
+</pre></div>
+</div>
+<p>gitのバージョンが古い？なんかこれは直接の問題じゃなさそうだけど対処</p>
+<div class="highlight-bash"><div class="highlight"><pre>git clone https://github.com/git/git.git
+yum remove git
+<span class="nb">cd </span>git
+make configure
+./configure  --with-curl --with-expat
+make
+make install
+</pre></div>
+</div>
+<p>※&#8211;with-curl &#8211;with-expatを付けないとhttpsアクセスの際にエラーになる</p>
+<p>もう一回確認</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo -u git -H bundle <span class="nb">exec </span>rake gitlab:check <span class="nv">RAILS_ENV</span><span class="o">=</span>production
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre>Running? ... no
+  Try fixing it:
+  sudo -u git -H bundle <span class="nb">exec </span>rake sidekiq:start <span class="nv">RAILS_ENV</span><span class="o">=</span>production
+  For more information see:
+  doc/install/installation.md in section <span class="s2">&quot;Install Init Script&quot;</span>
+  see log/sidekiq.log <span class="k">for</span> possible errors
+  Please fix the error above and rerun the checks.
+</pre></div>
+</div>
+<p>sidekiq:startに失敗している模様</p>
+<p>以下/home/git/gitlab/log/sidekiq.log</p>
+<div class="highlight-bash"><div class="highlight"><pre>uninitialized constant Draper
+/home/git/gitlab/app/decorators_org/application_decorator.rb:1:in <span class="s1">&#39;&lt;top (required)&gt;&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/backports-2.6.7/lib/backports/tools.rb:314:in <span class="s1">&#39;require&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/backports-2.6.7/lib/backports/tools.rb:314:in <span class="s1">&#39;require_with_backports&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/railties-3.2.13/lib/rails/engine.rb:439:in <span class="s1">&#39;block (2 levels) in eager_load!&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/railties-3.2.13/lib/rails/engine.rb:438:in <span class="s1">&#39;each&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/railties-3.2.13/lib/rails/engine.rb:438:in <span class="s1">&#39;block in eager_load!&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/railties-3.2.13/lib/rails/engine.rb:436:in <span class="s1">&#39;each&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/railties-3.2.13/lib/rails/engine.rb:436:in <span class="s1">&#39;eager_load!&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/railties-3.2.13/lib/rails/application/finisher.rb:53:in <span class="s1">&#39;block in &lt;module:Finisher&gt;&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/railties-3.2.13/lib/rails/initializable.rb:30:in <span class="s1">&#39;instance_exec&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/railties-3.2.13/lib/rails/initializable.rb:30:in <span class="s1">&#39;run&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/railties-3.2.13/lib/rails/initializable.rb:55:in <span class="s1">&#39;block in run_initializers&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/railties-3.2.13/lib/rails/initializable.rb:54:in <span class="s1">&#39;each&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/railties-3.2.13/lib/rails/initializable.rb:54:in <span class="s1">&#39;run_initializers&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/railties-3.2.13/lib/rails/application.rb:136:in <span class="s1">&#39;initialize!&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/railties-3.2.13/lib/rails/railtie/configurable.rb:30:in <span class="s1">&#39;method_missing&#39;</span>
+/home/git/gitlab/config/environment.rb:5:in <span class="s1">&#39;&lt;top (required)&gt;&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/sidekiq-2.11.1/lib/sidekiq/cli.rb:197:in <span class="s1">&#39;require&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/sidekiq-2.11.1/lib/sidekiq/cli.rb:197:in <span class="s1">&#39;boot_system&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/sidekiq-2.11.1/lib/sidekiq/cli.rb:39:in <span class="s1">&#39;parse&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/gems/sidekiq-2.11.1/bin/sidekiq:7:in <span class="s1">&#39;&lt;top (required)&gt;&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/bin/sidekiq:23:in <span class="s1">&#39;load&#39;</span>
+/home/git/gitlab/vendor/bundle/ruby/1.9.1/bin/sidekiq:23:in <span class="s1">&#39;&lt;main&gt;&#39;</span>
+</pre></div>
+</div>
+<p>issueみたけど、当てはまるのなさそうな感じ</p>
+<p>色々ためしたけど変わらず。ふとそういえば起動スクリプト/etc/init.d/gitlabって更新してないよなーと思いアップデートすることにしてみた</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># 前のを消して</span>
+rm -f /etc/init.d/gitlab
+sudo curl --output /etc/init.d/gitlab https://raw.github.com/gitlabhq/gitlabhq/5-2-stable/lib/support/init.d/gitlab
+sudo chmod +x /etc/init.d/gitlab
+</pre></div>
+</div>
+<p>再起動</p>
+<div class="highlight-bash"><div class="highlight"><pre>/etc/init.d/gitlab start
+</pre></div>
+</div>
+<p><strong>動いた！！！！</strong></p>
+<p>なんで！？</p>
+<p>5.1と5.2のdiff</p>
+<div class="highlight-diff"><div class="highlight"><pre><span class="gd">--- gitlab5.1    2013-05-26 20:24:05.000000000 +0900</span>
+<span class="gi">+++ gitlab5.2    2013-05-26 20:24:56.000000000 +0900</span>
+<span class="gu">@@ -16,14 +16,15 @@</span>
+
+ APP_ROOT=&quot;/home/git/gitlab&quot;
+<span class="gd">-DAEMON_OPTS=&quot;-C $APP_ROOT/config/puma.rb -e production&quot;</span>
+<span class="gi">+APP_USER=&quot;git&quot;</span>
+<span class="gi">+DAEMON_OPTS=&quot;-C $APP_ROOT/config/puma.rb&quot;</span>
+ PID_PATH=&quot;$APP_ROOT/tmp/pids&quot;
+ WEB_SERVER_PID=&quot;$PID_PATH/puma.pid&quot;
+ SIDEKIQ_PID=&quot;$PID_PATH/sidekiq.pid&quot;
+ STOP_SIDEKIQ=&quot;RAILS_ENV=production bundle exec rake sidekiq:stop&quot;
+ START_SIDEKIQ=&quot;RAILS_ENV=production bundle exec rake sidekiq:start&quot;
+ NAME=&quot;gitlab&quot;
+<span class="gd">-DESC=&quot;Gitlab service&quot;</span>
+<span class="gi">+DESC=&quot;GitLab service&quot;</span>
+
+ check_pid(){
+   if [ -f $WEB_SERVER_PID ]; then
+<span class="gu">@@ -36,6 +37,10 @@</span>
+   fi
+ }
+
+<span class="gi">+execute() {</span>
+<span class="gi">+  sudo -u $APP_USER -H bash -l -c &quot;$1&quot;</span>
+<span class="gi">+}</span>
+<span class="gi">+</span>
+ start() {
+   cd $APP_ROOT
+   check_pid
+<span class="gu">@@ -45,8 +50,8 @@</span>
+     exit 1
+   else
+     if [ `whoami` = root ]; then
+<span class="gd">-      sudo -u git -H bash -l -c &quot;RAILS_ENV=production bundle exec puma $DAEMON_OPTS&quot;</span>
+<span class="gd">-      sudo -u git -H bash -l -c &quot;mkdir -p $PID_PATH &amp;&amp; $START_SIDEKIQ  &gt; /dev/null  2&gt;&amp;1 &amp;&quot;</span>
+<span class="gi">+      execute &quot;RAILS_ENV=production bundle exec puma $DAEMON_OPTS&quot;</span>
+<span class="gi">+      execute &quot;mkdir -p $PID_PATH &amp;&amp; $START_SIDEKIQ  &gt; /dev/null  2&gt;&amp;1 &amp;&quot;</span>
+       echo &quot;$DESC started&quot;
+     fi
+   fi
+<span class="gu">@@ -58,7 +63,7 @@</span>
+   if [ &quot;$PID&quot; -ne 0 -a &quot;$STATUS&quot; -ne 0 ]; then
+     ## Program is running, stop it.
+     kill -QUIT `cat $WEB_SERVER_PID`
+<span class="gd">-    sudo -u git -H bash -l -c &quot;mkdir -p $PID_PATH &amp;&amp; $STOP_SIDEKIQ  &gt; /dev/null  2&gt;&amp;1 &amp;&quot;</span>
+<span class="gi">+    execute &quot;mkdir -p $PID_PATH &amp;&amp; $STOP_SIDEKIQ  &gt; /dev/null  2&gt;&amp;1 &amp;&quot;</span>
+     rm &quot;$WEB_SERVER_PID&quot; &gt;&gt; /dev/null
+     echo &quot;$DESC stopped&quot;
+   else
+<span class="gu">@@ -74,9 +79,9 @@</span>
+   if [ &quot;$PID&quot; -ne 0 -a &quot;$STATUS&quot; -ne 0 ]; then
+     echo &quot;Restarting $DESC...&quot;
+     kill -USR2 `cat $WEB_SERVER_PID`
+<span class="gd">-    sudo -u git -H bash -l -c &quot;mkdir -p $PID_PATH &amp;&amp; $STOP_SIDEKIQ  &gt; /dev/null  2&gt;&amp;1 &amp;&quot;</span>
+<span class="gi">+    execute &quot;mkdir -p $PID_PATH &amp;&amp; $STOP_SIDEKIQ  &gt; /dev/null  2&gt;&amp;1 &amp;&quot;</span>
+     if [ `whoami` = root ]; then
+<span class="gd">-      sudo -u git -H bash -l -c &quot;mkdir -p $PID_PATH &amp;&amp; $START_SIDEKIQ  &gt; /dev/null  2&gt;&amp;1 &amp;&quot;</span>
+<span class="gi">+      execute &quot;mkdir -p $PID_PATH &amp;&amp; $START_SIDEKIQ  &gt; /dev/null  2&gt;&amp;1 &amp;&quot;</span>
+     fi
+     echo &quot;$DESC restarted.&quot;
+   else
+<span class="gu">@@ -89,7 +94,7 @@</span>
+   cd $APP_ROOT
+   check_pid
+   if [ &quot;$PID&quot; -ne 0 -a &quot;$STATUS&quot; -ne 0 ]; then
+<span class="gd">-    echo &quot;$DESC / Unicorn with PID $PID is running.&quot;</span>
+<span class="gi">+    echo &quot;$DESC / Puma with PID $PID is running.&quot;</span>
+     echo &quot;$DESC / Sidekiq with PID $SPID is running.&quot;
+   else
+     echo &quot;$DESC is not running.&quot;
+</pre></div>
+</div>
+<p>うーむ、Sidekiqあたりで変更が入っているけどなんでだろう。issueでtmp/pids/sidekiq.pidのパーミッションエラーっていうのがあって似たような対処してたけどそれかな？</p>
+<p><strong>追記</strong></p>
+<p>上の手順で</p>
+<div class="highlight-bash"><div class="highlight"><pre>Running? ... no
+  Try fixing it:
+  sudo -u git -H bundle <span class="nb">exec </span>rake sidekiq:start <span class="nv">RAILS_ENV</span><span class="o">=</span>production
+  For more information see:
+  doc/install/installation.md in section <span class="s2">&quot;Install Init Script&quot;</span>
+  see log/sidekiq.log <span class="k">for</span> possible errors
+  Please fix the error above and rerun the checks.
+</pre></div>
+</div>
+<p>となっていて</p>
+<div class="highlight-bash"><div class="highlight"><pre>bundle <span class="nb">exec </span>rake sidekiq:start <span class="nv">RAILS_ENV</span><span class="o">=</span>production
+</pre></div>
+</div>
+<p>を実行していなかったことが原因だったぽい</p>
+<p>上記を実行しているのがinitスクリプトというのが真相かな</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id4">
+<h2>まとめ</h2>
+<p>基本的にはドキュメントどおりでできる。ただし推奨環境はDebian系なのでドキュメントどおりでないところもある。</p>
+<p>あと関係ないけど、OSそろそろCentOS5系はやめようかな</p>
+<hr class="docutils" />
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>投稿者 TakkuMattsu</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="../../../categories/gitlab.html">Gitlab</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="../../../tags/gitlab.html">Gitlab</a></span>
+        </div>
+        </div>
+    <div id="disqus_thread"></div><script type="text/javascript">    var disqus_shortname = "takkumattsu";    var disqus_identifier = "2013/05/26/gitlab5_1_for_5_2";    disqus_thread();</script><noscript>Please enable JavaScript to view the    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../../06/20/gitlab_init_script.html">Gitlabの/etc/init.d/gitlabについて</a></li>
+            <li class="right"><a href="gitlab5_0_for_5_1.html">Gitlabを5.0から5.1にあげてみた</a> &raquo; </li>
+        </ul></article><aside class="sidebar"><section><div class="gravatar">
+	<br>
+	<img src="http://www.gravatar.com/avatar/66d39d5006dfb1dc53e1763022107db9?s=150" alt="Gravatar"/> 
+	<br>
+	<p>TakkuMattsu</p>
+	<p>プログラマ。色々模索中。</p>
+</div></section><section><div class="widget">
+    <h1>最近の投稿</h1>
+    <ul><li>
+            <a href="../../../2017/12/03/gameboy_advent_calender2017.html">Game Boy Advent Calendar 2017 3日目: 掘り起こしてみた</a>
+        </li><li>
+            <a href="../../../2017/12/01/yuyushiki_advent_calender2017.html">ゆゆ式 Advent Calender 2017 2日目: 三上小又先生の一挙放送つぶやき</a>
+        </li><li>
+            <a href="../../../2016/12/02/yuyushiki_advent_calender2016.html">ゆゆ式 Advent Calendar 2016 3日目:ゆゆ式モブキャラ達</a>
+        </li><li>
+            <a href="../../../2016/07/02/the_reason_i_buy_a_souvenir_at_the_travel.html">自分が旅行先でお土産を買う理由</a>
+        </li><li>
+            <a href="../../../2015/12/02/yuyushiki_advent_calender2015.html">ゆゆ式 Advent Calendar 2015 3日目:2015年の三上小又先生のゆゆ式絵まとめ</a>
+        </li><li>
+            <a href="../../../2015/11/27/ci_daberi_night.html">モバイルCIダベリNightに行ってきた</a>
+        </li><li>
+            <a href="../../../2015/05/30/patisserie_cafe_aminchi.html">世田谷線沿線のおすすめカフェ「Patisserie Cafe aminchi」</a>
+        </li><li>
+            <a href="../../../2015/01/19/gitlab7_5_for_7_6.html">Redhat系(CentOS/Scientific Linux等)でGitlab7.5から7.6に上げる際に必要なlibkrb5-devについて</a>
+        </li><li>
+            <a href="../../../2014/12/02/yuyushiki_advent_calender2014.html">ゆゆ式 Advent Calender 2014 3日目:メガネゆずこ</a>
+        </li><li>
+            <a href="../../../2014/11/16/my_homebrew_formula.html">Homebrewに自分用のformulaを作る</a>
+        </li></ul>
+</div>
+</section><section><div class="widget">
+    <h1>カテゴリー</h1>
+    <ul><li><a href="../../../categories/adk.html">ADK</a> (1)</li><li><a href="../../../categories/adventcalender.html">AdventCalender</a> (4)</li><li><a href="../../../categories/gitlab.html">Gitlab</a> (8)</li><li><a href="../../../categories/homebrew.html">Homebrew</a> (1)</li><li><a href="../../../categories/ios.html">iOS</a> (2)</li><li><a href="../../../categories/objective_c.html">Objective-C</a> (1)</li><li><a href="../../../categories/sphinx.html">sphinx</a> (1)</li><li><a href="../../../categories/teraterm.html">Teraterm</a> (1)</li><li><a href="../../../categories/tinkerer.html">Tinkerer</a> (3)</li><li><a href="../../../categories/vim.html">vim</a> (1)</li><li><a href="../../../categories/xcode.html">Xcode</a> (1)</li><li><a href="../../../categories/その他.html">その他</a> (5)</li></ul>
+</div></section><section><div class="widget">
+    <h1>タグ</h1><a href="../../../tags/adk.html">ADK</a> (1), <a href="../../../tags/coconala.html">coconala</a> (1), <a href="../../../tags/gitlab.html">Gitlab</a> (8), <a href="../../../tags/homebrew.html">Homebrew</a> (1), <a href="../../../tags/ios.html">iOS</a> (2), <a href="../../../tags/objective_c.html">Objective-C</a> (1), <a href="../../../tags/sed.html">sed</a> (1), <a href="../../../tags/sphinx.html">sphinx</a> (1), <a href="../../../tags/teraterm.html">Teraterm</a> (1), <a href="../../../tags/tinkerer.html">Tinkerer</a> (3), <a href="../../../tags/vim.html">vim</a> (1), <a href="../../../tags/xcode.html">Xcode</a> (1), <a href="../../../tags/その他.html">その他</a> (3), <a href="../../../tags/ゆゆ式.html">ゆゆ式</a> (4)</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2013-2015 TakkuMattsu. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

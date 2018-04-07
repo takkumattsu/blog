@@ -1,0 +1,401 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>Gitlabを使ってみた &mdash; Life is like a development.</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/modern5.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" /><link rel="stylesheet" href="../../../_static/usaturn.css" type="text/css" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="next" title="アイコンを描いてもらった" href="../../04/02/my_favorite_icon.html" /><link rel="prev" title="Gitlabを5.0から5.1にあげてみた" href="../26/gitlab5_0_for_5_1.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script><script type="text/javascript" src="../../../_static/translations.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script><meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@NorsteinBekkler" />
+    <meta property="og:title" content="Life is like a development." />
+    <meta property="og:description" content="Gitlabを使ってみた" />
+    <meta property="og:url" content="http://www.nanao-a.com/blog/html/2013/05/12/use_gitlab.html" />
+    
+        <meta property="og:image" content="http://www.nanao-a.com/_image/ogp/lld.png" />
+    
+</head>
+    <body role="document">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header role="banner">
+            <hgroup>
+              <h1><a href="../../../index.html">Life is like a development.</a></h1><h2>メモ、備忘録</h2></hgroup>
+          </header>
+      <nav role="navigation">
+            <ul><li class="quicklink"><div class="rss">
+        <a href="../../../rss.html" title="Subscribe via RSS"><span class="fa fa-lg fa-rss"></span></a>
+    </div></li><li class="main-nav">
+                  <a href="../../../index.html">ホーム</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../../../pages/about.html">About</a>
+                </li>
+              </ul>
+          </nav><div class="main-container" role="main"><div class="main wrapper body clearfix"><article role="article"><ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../26/gitlab5_0_for_5_1.html">Gitlabを5.0から5.1にあげてみた</a></li>
+            <li class="right"><a href="../../04/02/my_favorite_icon.html">アイコンを描いてもらった</a> &raquo; </li>
+        </ul>
+    <div class="timestamp postmeta">
+            <span>5月 12, 2013</span>
+        </div>
+    
+        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">ツイート</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+    <div class="section" id="gitlab">
+<h1>Gitlabを使ってみた</h1>
+<a class="reference internal image-reference" href="../../../_images/gitlab_logo.png"><img alt="../../../_images/gitlab_logo.png" class="align-center" src="../../../_images/gitlab_logo.png" style="width: 310.0px; height: 200.0px;" /></a>
+<p>やたらキモイロゴの <a class="reference external" href="http://gitlab.org/">Gitlab</a></p>
+<p>githubのオープンソースクローンと呼ばれている。</p>
+<div id="more"> </div><p>用途はたぶん以下に当てはまる場合</p>
+<ul class="simple">
+<li>githubでプライベートリポジトリ作るのにお金がかかるのがイヤ</li>
+<li>社内の開発リポジトリを外部に出すのに抵抗がある</li>
+</ul>
+<p>正直メンテを考えたらgithubのプライベートリポジトリを使った方がいいような気もする。それか <a class="reference external" href="https://bitbucket.org/">Bitbucket</a></p>
+<p>入れ方は <a class="reference external" href="https://github.com/gitlabhq/gitlabhq/blob/5-0-stable/doc/install/installation.md">gitlabのgithubのところに書いてある</a> (2013/04/25現在は5.0が推奨)</p>
+<p>インストールはDebian系で書かれているけど、CentOS※でも必要なものを入れれば動いた</p>
+<p>※CentOS5系</p>
+<div class="section" id="id2">
+<h2>自分が入れた際のメモ</h2>
+<hr class="docutils" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="id3">
+<h3>必要なパッケージを用意</h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Debian系のパッケージ名</th>
+<th class="head">Redhat系のパッケージ名</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>build-essential</td>
+<td>?(たぶんgcc gcc-c++ kernel-develあたり)</td>
+</tr>
+<tr class="row-odd"><td>zlib-dev</td>
+<td>zlib-devel</td>
+</tr>
+<tr class="row-even"><td>libyaml-dev</td>
+<td>libyaml-devel</td>
+</tr>
+<tr class="row-odd"><td>libssl-dev</td>
+<td>openssl-devel</td>
+</tr>
+<tr class="row-even"><td>libgdbm-dev</td>
+<td>gdbm-devel</td>
+</tr>
+<tr class="row-odd"><td>libreadline-dev</td>
+<td>readline-devel</td>
+</tr>
+<tr class="row-even"><td>libncurses5-dev</td>
+<td>ncurses-devel</td>
+</tr>
+<tr class="row-odd"><td>libffi-dev</td>
+<td>libffi-devel</td>
+</tr>
+<tr class="row-even"><td>git-core</td>
+<td>git-core</td>
+</tr>
+<tr class="row-odd"><td>openssh-server</td>
+<td>openssh-server</td>
+</tr>
+<tr class="row-even"><td>redis-server</td>
+<td>redis</td>
+</tr>
+<tr class="row-odd"><td>postfix</td>
+<td>postfix</td>
+</tr>
+<tr class="row-even"><td>checkinstall</td>
+<td>ないので手動</td>
+</tr>
+<tr class="row-odd"><td>libxml2-dev</td>
+<td>libxml-devel</td>
+</tr>
+<tr class="row-even"><td>libxslt-dev</td>
+<td>libxslt-devel</td>
+</tr>
+<tr class="row-odd"><td>libcurl4-openssl-dev</td>
+<td>libcurl-devel</td>
+</tr>
+<tr class="row-even"><td>libicu-dev</td>
+<td>libicu-devel</td>
+</tr>
+</tbody>
+</table>
+<p>checkinstallだけは手動でいれる <a class="reference external" href="http://www.genteel.org/archives/132">ここ参照</a></p>
+<div class="highlight-bash"><div class="highlight"><pre>wget http://asic-linux.com.mx/~izto/checkinstall/files/source/checkinstall-1.6.2.tar.gz
+tar xvf checkinstall-1.6.2.tar.gz
+<span class="nb">cd </span>checkinstall-1.6.2/
+make <span class="o">&amp;&amp;</span> make insatll
+</pre></div>
+</div>
+<p>RPM化</p>
+<div class="highlight-bash"><div class="highlight"><pre>checkinstall
+</pre></div>
+</div>
+</div>
+<div class="section" id="ruby-1-9-3">
+<h3>rubyのインストール(1.9.3)</h3>
+<p>自分の環境には1.8が入っていたのでいったんアンインストール</p>
+<div class="highlight-bash"><div class="highlight"><pre>yum remove ruby
+</pre></div>
+</div>
+<p>1.9.3インストール</p>
+<div class="highlight-bash"><div class="highlight"><pre>curl --progress http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p327.tar.gz <span class="p">|</span> tar xz
+<span class="nb">cd </span>ruby-1.9.3-p327/
+./configure
+make <span class="o">&amp;&amp;</span> make install
+</pre></div>
+</div>
+<p>BundlerGemのインストール</p>
+<p>sudo gem install bundler</p>
+</div>
+<div class="section" id="id5">
+<h3>Gitlabのユーザ作成</h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># 手順では以下だがCentOSなので</span>
+<span class="c"># sudo adduser --disabled-login --gecos &#39;GitLab&#39; git</span>
+<span class="c"># こっち</span>
+adduser -c <span class="s1">&#39;GitLab&#39;</span> git
+</pre></div>
+</div>
+</div>
+<div class="section" id="gitlab-shell">
+<h3>Gitlab shellのインストール</h3>
+<div class="highlight-bash"><div class="highlight"><pre>su git
+<span class="nb">cd</span> /home/git
+git clone https://github.com/gitlabhq/gitlab-shell.git
+<span class="nb">cd </span>gitlab-shell
+cp config.yml.example config.yml
+<span class="c"># Edit config and replace gitlab_url</span>
+<span class="c"># with something like &#39;http://domain.com/&#39;</span>
+vim config.yml
+<span class="s1">&#39;http://domain.com/&#39;</span>の部分を自分の環境に合わせて変更<span class="o">(</span>自分の場合ポートも変えたのでそれを含め変更http://xxx.com:XXXXみたいに<span class="o">)</span>
+あとsshポートを変更している人は<span class="s1">&#39;ssh_port&#39;</span>の部分を変更する
+./bin/install
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>データベースのセットアップ</h3>
+<p>postgreでもいいみたいだけど、自分の場合はmysqlを利用</p>
+<p>インストール</p>
+<div class="highlight-bash"><div class="highlight"><pre>yum install mysql-server mysql-devel
+</pre></div>
+</div>
+<p>データベースのセットアップ</p>
+<div class="highlight-bash"><div class="highlight"><pre>mysql -u root -p
+mysql &gt; CREATE USER <span class="s1">&#39;gitlab&#39;</span>@<span class="s1">&#39;localhost&#39;</span> IDENTIFIED BY <span class="s1">&#39;パスワード&#39;</span><span class="p">;</span>
+mysql &gt; CREATE DATABASE IF NOT EXISTS <span class="sb">`</span>gitlabhq_production<span class="sb">`</span> DEFAULT CHARACTER SET <span class="sb">`</span>utf8<span class="sb">`</span> COLLATE <span class="sb">`</span>utf8_unicode_ci<span class="sb">`</span><span class="p">;</span>
+mysql &gt; GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON <span class="sb">`</span>gitlabhq_production<span class="sb">`</span>.* TO <span class="s1">&#39;gitlab&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
+mysql &gt; <span class="se">\q</span>
+sudo -u git -H mysql -u gitlab -p -D gitlabhq_production
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>Gitlabのソースの取得</h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># gitにsu権限</span>
+usermod -G wheel git
+<span class="nb">cd</span> /home/git
+sudo -u git -H git clone https://github.com/gitlabhq/gitlabhq.git gitlab
+<span class="nb">cd</span> /home/git/gitlab
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>Gitlabの設定</h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> /home/git/gitlab
+sudo -u git -H cp config/gitlab.yml.example config/gitlab.yml
+sudo -u git -H vim config/gitlab.yml
+<span class="c"># 自分の場合はlocalhostを変更した</span>
+sudo chown -R git log/
+sudo chown -R git tmp/
+sudo chmod -R u+rwX  log/
+sudo chmod -R u+rwX  tmp/
+sudo -u git -H mkdir /home/git/gitlab-satellites
+sudo -u git -H mkdir tmp/pids/
+sudo chmod -R u+rwX  tmp/pids/
+sudo -u git -H cp config/unicorn.rb.example config/unicorn.rb
+vim config/unicorn.rb
+<span class="c"># 自分の場合はlistenポート変更</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>Gitlabの データベースの設定</h3>
+<div class="highlight-bash"><div class="highlight"><pre>sudo -u git cp config/database.yml.mysql config/database.yml
+<span class="c"># データベースで設定したユーザとパスワードを指定</span>
+vim config/database.yml
+</pre></div>
+</div>
+</div>
+<div class="section" id="ruby">
+<h3>rubyパッケージの取得</h3>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># reademeでは</span>
+<span class="c"># sudo -u git -H bundle exec rake gitlab:setup RAILS_ENV=production</span>
+<span class="c"># 自分はこっち(権限の関係かな)</span>
+bundle <span class="nb">exec </span>rake gitlab:setup <span class="nv">RAILS_ENV</span><span class="o">=</span>production
+Administrator account created:
+</pre></div>
+</div>
+<p>仮のアカウントが表示されるはず</p>
+</div>
+<div class="section" id="id10">
+<h3>初期化スクリプト</h3>
+<div class="highlight-bash"><div class="highlight"><pre>sudo curl --output /etc/init.d/gitlab https://raw.github.com/gitlabhq/gitlab-recipes/master/init.d/gitlab
+sudo chmod +x /etc/init.d/gitlab
+</pre></div>
+</div>
+<p>起動時に動くようにする</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo /sbin/chkconfig --level <span class="m">2345</span> gitlab on
+</pre></div>
+</div>
+<p>色々チェック</p>
+<div class="highlight-bash"><div class="highlight"><pre>bundle <span class="nb">exec </span>rake gitlab:env:info <span class="nv">RAILS_ENV</span><span class="o">=</span>production
+</pre></div>
+</div>
+<p>上記で</p>
+<div class="highlight-bash"><div class="highlight"><pre>Git configured <span class="k">for</span> git user? ... no
+ Try fixing it:
+  sudo -u git -H git config --global user.name  <span class="s2">&quot;GitLab&quot;</span>
+  sudo -u git -H git config --global user.email <span class="s2">&quot;gitlab@localhost&quot;</span>
+</pre></div>
+</div>
+<p>と言われたので</p>
+<div class="highlight-bash"><div class="highlight"><pre>git config --global user.name  <span class="s2">&quot;GitLab&quot;</span>
+git config --global user.email <span class="s2">&quot;gitlab@localhost&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>Gitlabの起動</h3>
+<div class="highlight-bash"><div class="highlight"><pre>bundle <span class="nb">exec </span>rake sidekiq:start <span class="nv">RAILS_ENV</span><span class="o">=</span>production
+</pre></div>
+</div>
+<p>Gitlabのインストールガイドだとnginxだけど、自分はApacheなので特に何もせず</p>
+<p>設定したURL:ポートにアクセスするとログイン画面が出てくる</p>
+<img alt="../../../_images/gitlab_login.png" class="align-center" src="../../../_images/gitlab_login.png" />
+<p>あとは <a class="reference external" href="http://memocra.blogspot.jp/2012/02/gitlab.html">ここ</a> を参考にユーザの設定を行う</p>
+<p><strong>補足</strong></p>
+<p>自分の場合コミット時にsshの権限まわりでエラーが出ていたので以下の対処を実施</p>
+<div class="highlight-bash"><div class="highlight"><pre>su git
+<span class="nb">cd</span>
+chmod <span class="m">755</span> .ssh
+chmod <span class="m">600</span> .ssh/authroized_keys
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id13">
+<h3>感想</h3>
+<p>普通はgithubでいいと思う。わざわざ構築したのはいつか会社とかでgitが主流になった時にgithubのプライベート案がけられた時に使いたいなーと思ったから。</p>
+<hr class="docutils" />
+</div>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>投稿者 TakkuMattsu</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="../../../categories/gitlab.html">Gitlab</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="../../../tags/gitlab.html">Gitlab</a></span>
+        </div>
+        </div>
+    <div id="disqus_thread"></div><script type="text/javascript">    var disqus_shortname = "takkumattsu";    var disqus_identifier = "2013/05/12/use_gitlab";    disqus_thread();</script><noscript>Please enable JavaScript to view the    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<ul class="related clearfix">
+            <li class="left"> &laquo; <a href="../26/gitlab5_0_for_5_1.html">Gitlabを5.0から5.1にあげてみた</a></li>
+            <li class="right"><a href="../../04/02/my_favorite_icon.html">アイコンを描いてもらった</a> &raquo; </li>
+        </ul></article><aside class="sidebar"><section><div class="gravatar">
+	<br>
+	<img src="http://www.gravatar.com/avatar/66d39d5006dfb1dc53e1763022107db9?s=150" alt="Gravatar"/> 
+	<br>
+	<p>TakkuMattsu</p>
+	<p>プログラマ。色々模索中。</p>
+</div></section><section><div class="widget">
+    <h1>最近の投稿</h1>
+    <ul><li>
+            <a href="../../../2017/12/03/gameboy_advent_calender2017.html">Game Boy Advent Calendar 2017 3日目: 掘り起こしてみた</a>
+        </li><li>
+            <a href="../../../2017/12/01/yuyushiki_advent_calender2017.html">ゆゆ式 Advent Calender 2017 2日目: 三上小又先生の一挙放送つぶやき</a>
+        </li><li>
+            <a href="../../../2016/12/02/yuyushiki_advent_calender2016.html">ゆゆ式 Advent Calendar 2016 3日目:ゆゆ式モブキャラ達</a>
+        </li><li>
+            <a href="../../../2016/07/02/the_reason_i_buy_a_souvenir_at_the_travel.html">自分が旅行先でお土産を買う理由</a>
+        </li><li>
+            <a href="../../../2015/12/02/yuyushiki_advent_calender2015.html">ゆゆ式 Advent Calendar 2015 3日目:2015年の三上小又先生のゆゆ式絵まとめ</a>
+        </li><li>
+            <a href="../../../2015/11/27/ci_daberi_night.html">モバイルCIダベリNightに行ってきた</a>
+        </li><li>
+            <a href="../../../2015/05/30/patisserie_cafe_aminchi.html">世田谷線沿線のおすすめカフェ「Patisserie Cafe aminchi」</a>
+        </li><li>
+            <a href="../../../2015/01/19/gitlab7_5_for_7_6.html">Redhat系(CentOS/Scientific Linux等)でGitlab7.5から7.6に上げる際に必要なlibkrb5-devについて</a>
+        </li><li>
+            <a href="../../../2014/12/02/yuyushiki_advent_calender2014.html">ゆゆ式 Advent Calender 2014 3日目:メガネゆずこ</a>
+        </li><li>
+            <a href="../../../2014/11/16/my_homebrew_formula.html">Homebrewに自分用のformulaを作る</a>
+        </li></ul>
+</div>
+</section><section><div class="widget">
+    <h1>カテゴリー</h1>
+    <ul><li><a href="../../../categories/adk.html">ADK</a> (1)</li><li><a href="../../../categories/adventcalender.html">AdventCalender</a> (4)</li><li><a href="../../../categories/gitlab.html">Gitlab</a> (8)</li><li><a href="../../../categories/homebrew.html">Homebrew</a> (1)</li><li><a href="../../../categories/ios.html">iOS</a> (2)</li><li><a href="../../../categories/objective_c.html">Objective-C</a> (1)</li><li><a href="../../../categories/sphinx.html">sphinx</a> (1)</li><li><a href="../../../categories/teraterm.html">Teraterm</a> (1)</li><li><a href="../../../categories/tinkerer.html">Tinkerer</a> (3)</li><li><a href="../../../categories/vim.html">vim</a> (1)</li><li><a href="../../../categories/xcode.html">Xcode</a> (1)</li><li><a href="../../../categories/その他.html">その他</a> (5)</li></ul>
+</div></section><section><div class="widget">
+    <h1>タグ</h1><a href="../../../tags/adk.html">ADK</a> (1), <a href="../../../tags/coconala.html">coconala</a> (1), <a href="../../../tags/gitlab.html">Gitlab</a> (8), <a href="../../../tags/homebrew.html">Homebrew</a> (1), <a href="../../../tags/ios.html">iOS</a> (2), <a href="../../../tags/objective_c.html">Objective-C</a> (1), <a href="../../../tags/sed.html">sed</a> (1), <a href="../../../tags/sphinx.html">sphinx</a> (1), <a href="../../../tags/teraterm.html">Teraterm</a> (1), <a href="../../../tags/tinkerer.html">Tinkerer</a> (3), <a href="../../../tags/vim.html">vim</a> (1), <a href="../../../tags/xcode.html">Xcode</a> (1), <a href="../../../tags/その他.html">その他</a> (3), <a href="../../../tags/ゆゆ式.html">ゆゆ式</a> (4)</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2013-2015 TakkuMattsu. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

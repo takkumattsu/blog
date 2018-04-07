@@ -1,0 +1,83 @@
+.character-admonition > .icon {
+    display: table-cell;
+    vertical-align: top;
+    width: 64px;
+    height: 64px;
+}
+
+.character-admonition > .icon > .name {
+    font-size: small;
+    text-align: center;
+}
+
+.character-admonition > .message-box {
+    position: relative;
+    display: table-cell;
+    vertical-align: top;
+    width: 400px
+}
+
+.character-admonition > .message-box.left {
+    padding-left: 18px;
+    padding-right: 64px;
+}
+
+.character-admonition > .message-box.right {
+    padding-left: 64px;
+    padding-right: 18px;
+}
+
+.character-admonition > .message-box > .message {
+    display: table-cell;
+    vertical-align: top;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    position: relative;
+    padding: 12px 12px 12px 12px;
+    width: 400px;
+}
+
+.character-admonition > .message-box > .message:before {
+    border: 10px solid transparent;
+    top: 8px;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+}
+
+.character-admonition > .message-box > .message:after {
+    border: 10px solid transparent;
+    top: 8px;
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+}
+
+.character-admonition > .message-box.left > .message:before {
+    border-right-color: #fff;
+    border-left-width: 0;
+    left: -9px;
+    z-index: 1;
+}
+
+.character-admonition > .message-box.right > .message:before {
+    border-left-color: #fff;
+    border-right-width: 0;
+    right: -9px;
+    z-index: 1;
+}
+
+.character-admonition > .message-box.left > .message:after {
+    border-right-color: #000;
+    border-left-width: 0;
+    left: -10px;
+}
+
+.character-admonition > .message-box.right > .message:after {
+    border-left-color: #000;
+    border-right-width: 0;
+    right: -10px;
+}
