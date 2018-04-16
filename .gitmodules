@@ -1,0 +1,3 @@
+[submodule "font"]
+	path = font
+	url = git@github.com:TakkuMattsu/takaofont-powerline.git
