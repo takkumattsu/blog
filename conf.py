@@ -60,11 +60,11 @@ posts_per_page = 10
 # **************************************************************
 
 # Add other Sphinx extensions here
-extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus', 'sphinxcontrib.twitter', 'sphinxcontrib.blockdiag', 'sphinxcontrib.gist', 'sphinxjp.usaturn', 'sphinxcontrib.slide'] 
+extensions = ['tinkerer.ext.blog', 'tinkerer.ext.disqus', 'sphinxcontrib.twitter', 'sphinxcontrib.blockdiag', 'sphinxcontrib.gist', 'sphinxjp.usaturn'] 
 
 # Fontpath for blockdiag (truetype font)
-current_dir = os.path.abspath(os.path.dirname(unicode(__file__)))
-my_fonts_path = current_dir + '/fonts/TakaoGothic.ttf'
+current_dir = os.path.abspath(".")
+my_fonts_path = current_dir + '/font/TakaoGothic-Powerline.ttf'
 
 blockdiag_fontpath = [ my_fonts_path, # my setting
                        'C:\Windows\Fonts\msmincho.ttc', # for Windows
