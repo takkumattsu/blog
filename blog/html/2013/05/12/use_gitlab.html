@@ -28,15 +28,16 @@
         <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
         <script src="../../../_static/plugins.js"></script>
         <script src="../../../_static/main.js"></script>
-        <link rel="next" title="アイコンを描いてもらった" href="../../04/02/my_favorite_icon.html" /><link rel="prev" title="Gitlabを5.0から5.1にあげてみた" href="../26/gitlab5_0_for_5_1.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+        <link rel="search" title="検索" href="../../../search.html" /><link rel="next" title="アイコンを描いてもらった" href="../../04/02/my_favorite_icon.html" /><link rel="prev" title="Gitlabを5.0から5.1にあげてみた" href="../26/gitlab5_0_for_5_1.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '1.5',
+        VERSION:     '1.7.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
+        SOURCELINK_SUFFIX: '.txt',
         HAS_SOURCE:  true
       };
-    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script><script type="text/javascript" src="../../../_static/translations.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script><meta name="twitter:card" content="summary" />
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script><script type="text/javascript" src="../../../_static/translations.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script><meta name="twitter:card" content="summary" />
     <meta name="twitter:creator" content="@NorsteinBekkler" />
     <meta property="og:title" content="Life is like a development." />
     <meta property="og:description" content="Gitlabを使ってみた" />
@@ -97,7 +98,7 @@
 </div>
 <div class="section" id="id3">
 <h3>必要なパッケージを用意</h3>
-<table border="1" class="docutils">
+<table border="1" class="colwidths-given docutils">
 <colgroup>
 <col width="50%" />
 <col width="50%" />
@@ -162,26 +163,26 @@
 </tbody>
 </table>
 <p>checkinstallだけは手動でいれる <a class="reference external" href="http://www.genteel.org/archives/132">ここ参照</a></p>
-<div class="highlight-bash"><div class="highlight"><pre>wget http://asic-linux.com.mx/~izto/checkinstall/files/source/checkinstall-1.6.2.tar.gz
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget http://asic-linux.com.mx/~izto/checkinstall/files/source/checkinstall-1.6.2.tar.gz
 tar xvf checkinstall-1.6.2.tar.gz
-<span class="nb">cd </span>checkinstall-1.6.2/
+<span class="nb">cd</span> checkinstall-1.6.2/
 make <span class="o">&amp;&amp;</span> make insatll
 </pre></div>
 </div>
 <p>RPM化</p>
-<div class="highlight-bash"><div class="highlight"><pre>checkinstall
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>checkinstall
 </pre></div>
 </div>
 </div>
 <div class="section" id="ruby-1-9-3">
 <h3>rubyのインストール(1.9.3)</h3>
 <p>自分の環境には1.8が入っていたのでいったんアンインストール</p>
-<div class="highlight-bash"><div class="highlight"><pre>yum remove ruby
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum remove ruby
 </pre></div>
 </div>
 <p>1.9.3インストール</p>
-<div class="highlight-bash"><div class="highlight"><pre>curl --progress http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p327.tar.gz <span class="p">|</span> tar xz
-<span class="nb">cd </span>ruby-1.9.3-p327/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl --progress http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p327.tar.gz <span class="p">|</span> tar xz
+<span class="nb">cd</span> ruby-1.9.3-p327/
 ./configure
 make <span class="o">&amp;&amp;</span> make install
 </pre></div>
@@ -191,22 +192,22 @@ make <span class="o">&amp;&amp;</span> make install
 </div>
 <div class="section" id="id5">
 <h3>Gitlabのユーザ作成</h3>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c"># 手順では以下だがCentOSなので</span>
-<span class="c"># sudo adduser --disabled-login --gecos &#39;GitLab&#39; git</span>
-<span class="c"># こっち</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 手順では以下だがCentOSなので</span>
+<span class="c1"># sudo adduser --disabled-login --gecos &#39;GitLab&#39; git</span>
+<span class="c1"># こっち</span>
 adduser -c <span class="s1">&#39;GitLab&#39;</span> git
 </pre></div>
 </div>
 </div>
 <div class="section" id="gitlab-shell">
 <h3>Gitlab shellのインストール</h3>
-<div class="highlight-bash"><div class="highlight"><pre>su git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>su git
 <span class="nb">cd</span> /home/git
 git clone https://github.com/gitlabhq/gitlab-shell.git
-<span class="nb">cd </span>gitlab-shell
+<span class="nb">cd</span> gitlab-shell
 cp config.yml.example config.yml
-<span class="c"># Edit config and replace gitlab_url</span>
-<span class="c"># with something like &#39;http://domain.com/&#39;</span>
+<span class="c1"># Edit config and replace gitlab_url</span>
+<span class="c1"># with something like &#39;http://domain.com/&#39;</span>
 vim config.yml
 <span class="s1">&#39;http://domain.com/&#39;</span>の部分を自分の環境に合わせて変更<span class="o">(</span>自分の場合ポートも変えたのでそれを含め変更http://xxx.com:XXXXみたいに<span class="o">)</span>
 あとsshポートを変更している人は<span class="s1">&#39;ssh_port&#39;</span>の部分を変更する
@@ -218,11 +219,11 @@ vim config.yml
 <h3>データベースのセットアップ</h3>
 <p>postgreでもいいみたいだけど、自分の場合はmysqlを利用</p>
 <p>インストール</p>
-<div class="highlight-bash"><div class="highlight"><pre>yum install mysql-server mysql-devel
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yum install mysql-server mysql-devel
 </pre></div>
 </div>
 <p>データベースのセットアップ</p>
-<div class="highlight-bash"><div class="highlight"><pre>mysql -u root -p
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysql -u root -p
 mysql &gt; CREATE USER <span class="s1">&#39;gitlab&#39;</span>@<span class="s1">&#39;localhost&#39;</span> IDENTIFIED BY <span class="s1">&#39;パスワード&#39;</span><span class="p">;</span>
 mysql &gt; CREATE DATABASE IF NOT EXISTS <span class="sb">`</span>gitlabhq_production<span class="sb">`</span> DEFAULT CHARACTER SET <span class="sb">`</span>utf8<span class="sb">`</span> COLLATE <span class="sb">`</span>utf8_unicode_ci<span class="sb">`</span><span class="p">;</span>
 mysql &gt; GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER ON <span class="sb">`</span>gitlabhq_production<span class="sb">`</span>.* TO <span class="s1">&#39;gitlab&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
@@ -233,7 +234,7 @@ sudo -u git -H mysql -u gitlab -p -D gitlabhq_production
 </div>
 <div class="section" id="id7">
 <h3>Gitlabのソースの取得</h3>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c"># gitにsu権限</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># gitにsu権限</span>
 usermod -G wheel git
 <span class="nb">cd</span> /home/git
 sudo -u git -H git clone https://github.com/gitlabhq/gitlabhq.git gitlab
@@ -243,10 +244,10 @@ sudo -u git -H git clone https://github.com/gitlabhq/gitlabhq.git gitlab
 </div>
 <div class="section" id="id8">
 <h3>Gitlabの設定</h3>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> /home/git/gitlab
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /home/git/gitlab
 sudo -u git -H cp config/gitlab.yml.example config/gitlab.yml
 sudo -u git -H vim config/gitlab.yml
-<span class="c"># 自分の場合はlocalhostを変更した</span>
+<span class="c1"># 自分の場合はlocalhostを変更した</span>
 sudo chown -R git log/
 sudo chown -R git tmp/
 sudo chmod -R u+rwX  log/
@@ -256,24 +257,24 @@ sudo -u git -H mkdir tmp/pids/
 sudo chmod -R u+rwX  tmp/pids/
 sudo -u git -H cp config/unicorn.rb.example config/unicorn.rb
 vim config/unicorn.rb
-<span class="c"># 自分の場合はlistenポート変更</span>
+<span class="c1"># 自分の場合はlistenポート変更</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id9">
 <h3>Gitlabの データベースの設定</h3>
-<div class="highlight-bash"><div class="highlight"><pre>sudo -u git cp config/database.yml.mysql config/database.yml
-<span class="c"># データベースで設定したユーザとパスワードを指定</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo -u git cp config/database.yml.mysql config/database.yml
+<span class="c1"># データベースで設定したユーザとパスワードを指定</span>
 vim config/database.yml
 </pre></div>
 </div>
 </div>
 <div class="section" id="ruby">
 <h3>rubyパッケージの取得</h3>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c"># reademeでは</span>
-<span class="c"># sudo -u git -H bundle exec rake gitlab:setup RAILS_ENV=production</span>
-<span class="c"># 自分はこっち(権限の関係かな)</span>
-bundle <span class="nb">exec </span>rake gitlab:setup <span class="nv">RAILS_ENV</span><span class="o">=</span>production
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># reademeでは</span>
+<span class="c1"># sudo -u git -H bundle exec rake gitlab:setup RAILS_ENV=production</span>
+<span class="c1"># 自分はこっち(権限の関係かな)</span>
+bundle <span class="nb">exec</span> rake gitlab:setup <span class="nv">RAILS_ENV</span><span class="o">=</span>production
 Administrator account created:
 </pre></div>
 </div>
@@ -281,34 +282,34 @@ Administrator account created:
 </div>
 <div class="section" id="id10">
 <h3>初期化スクリプト</h3>
-<div class="highlight-bash"><div class="highlight"><pre>sudo curl --output /etc/init.d/gitlab https://raw.github.com/gitlabhq/gitlab-recipes/master/init.d/gitlab
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo curl --output /etc/init.d/gitlab https://raw.github.com/gitlabhq/gitlab-recipes/master/init.d/gitlab
 sudo chmod +x /etc/init.d/gitlab
 </pre></div>
 </div>
 <p>起動時に動くようにする</p>
-<div class="highlight-bash"><div class="highlight"><pre>sudo /sbin/chkconfig --level <span class="m">2345</span> gitlab on
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo /sbin/chkconfig --level <span class="m">2345</span> gitlab on
 </pre></div>
 </div>
 <p>色々チェック</p>
-<div class="highlight-bash"><div class="highlight"><pre>bundle <span class="nb">exec </span>rake gitlab:env:info <span class="nv">RAILS_ENV</span><span class="o">=</span>production
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bundle <span class="nb">exec</span> rake gitlab:env:info <span class="nv">RAILS_ENV</span><span class="o">=</span>production
 </pre></div>
 </div>
 <p>上記で</p>
-<div class="highlight-bash"><div class="highlight"><pre>Git configured <span class="k">for</span> git user? ... no
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Git configured <span class="k">for</span> git user? ... no
  Try fixing it:
   sudo -u git -H git config --global user.name  <span class="s2">&quot;GitLab&quot;</span>
   sudo -u git -H git config --global user.email <span class="s2">&quot;gitlab@localhost&quot;</span>
 </pre></div>
 </div>
 <p>と言われたので</p>
-<div class="highlight-bash"><div class="highlight"><pre>git config --global user.name  <span class="s2">&quot;GitLab&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git config --global user.name  <span class="s2">&quot;GitLab&quot;</span>
 git config --global user.email <span class="s2">&quot;gitlab@localhost&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id11">
 <h3>Gitlabの起動</h3>
-<div class="highlight-bash"><div class="highlight"><pre>bundle <span class="nb">exec </span>rake sidekiq:start <span class="nv">RAILS_ENV</span><span class="o">=</span>production
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bundle <span class="nb">exec</span> rake sidekiq:start <span class="nv">RAILS_ENV</span><span class="o">=</span>production
 </pre></div>
 </div>
 <p>Gitlabのインストールガイドだとnginxだけど、自分はApacheなので特に何もせず</p>
@@ -317,7 +318,7 @@ git config --global user.email <span class="s2">&quot;gitlab@localhost&quot;</sp
 <p>あとは <a class="reference external" href="http://memocra.blogspot.jp/2012/02/gitlab.html">ここ</a> を参考にユーザの設定を行う</p>
 <p><strong>補足</strong></p>
 <p>自分の場合コミット時にsshの権限まわりでエラーが出ていたので以下の対処を実施</p>
-<div class="highlight-bash"><div class="highlight"><pre>su git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>su git
 <span class="nb">cd</span>
 chmod <span class="m">755</span> .ssh
 chmod <span class="m">600</span> .ssh/authroized_keys
@@ -364,6 +365,8 @@ chmod <span class="m">600</span> .ssh/authroized_keys
 </div></section><section><div class="widget">
     <h1>最近の投稿</h1>
     <ul><li>
+            <a href="../../../2018/12/02/yuyushiki_advent_calender2018_rst.html">ゆゆ式 Advent Calender 2018 3日目: MagicaVoxelで唯ちゃんを描いてみた</a>
+        </li><li>
             <a href="../../../2017/12/03/gameboy_advent_calender2017.html">Game Boy Advent Calendar 2017 3日目: 掘り起こしてみた</a>
         </li><li>
             <a href="../../../2017/12/01/yuyushiki_advent_calender2017.html">ゆゆ式 Advent Calender 2017 2日目: 三上小又先生の一挙放送つぶやき</a>
@@ -381,15 +384,13 @@ chmod <span class="m">600</span> .ssh/authroized_keys
             <a href="../../../2015/01/19/gitlab7_5_for_7_6.html">Redhat系(CentOS/Scientific Linux等)でGitlab7.5から7.6に上げる際に必要なlibkrb5-devについて</a>
         </li><li>
             <a href="../../../2014/12/02/yuyushiki_advent_calender2014.html">ゆゆ式 Advent Calender 2014 3日目:メガネゆずこ</a>
-        </li><li>
-            <a href="../../../2014/11/16/my_homebrew_formula.html">Homebrewに自分用のformulaを作る</a>
         </li></ul>
 </div>
 </section><section><div class="widget">
     <h1>カテゴリー</h1>
-    <ul><li><a href="../../../categories/adk.html">ADK</a> (1)</li><li><a href="../../../categories/adventcalender.html">AdventCalender</a> (4)</li><li><a href="../../../categories/gitlab.html">Gitlab</a> (8)</li><li><a href="../../../categories/homebrew.html">Homebrew</a> (1)</li><li><a href="../../../categories/ios.html">iOS</a> (2)</li><li><a href="../../../categories/objective_c.html">Objective-C</a> (1)</li><li><a href="../../../categories/sphinx.html">sphinx</a> (1)</li><li><a href="../../../categories/teraterm.html">Teraterm</a> (1)</li><li><a href="../../../categories/tinkerer.html">Tinkerer</a> (3)</li><li><a href="../../../categories/vim.html">vim</a> (1)</li><li><a href="../../../categories/xcode.html">Xcode</a> (1)</li><li><a href="../../../categories/その他.html">その他</a> (5)</li></ul>
+    <ul><li><a href="../../../categories/adk.html">ADK</a> (1)</li><li><a href="../../../categories/adventcalender.html">AdventCalender</a> (5)</li><li><a href="../../../categories/gitlab.html">Gitlab</a> (8)</li><li><a href="../../../categories/homebrew.html">Homebrew</a> (1)</li><li><a href="../../../categories/ios.html">iOS</a> (2)</li><li><a href="../../../categories/objective_c.html">Objective-C</a> (1)</li><li><a href="../../../categories/sphinx.html">sphinx</a> (1)</li><li><a href="../../../categories/teraterm.html">Teraterm</a> (1)</li><li><a href="../../../categories/tinkerer.html">Tinkerer</a> (3)</li><li><a href="../../../categories/vim.html">vim</a> (1)</li><li><a href="../../../categories/xcode.html">Xcode</a> (1)</li><li><a href="../../../categories/その他.html">その他</a> (5)</li></ul>
 </div></section><section><div class="widget">
-    <h1>タグ</h1><a href="../../../tags/adk.html">ADK</a> (1), <a href="../../../tags/coconala.html">coconala</a> (1), <a href="../../../tags/gitlab.html">Gitlab</a> (8), <a href="../../../tags/homebrew.html">Homebrew</a> (1), <a href="../../../tags/ios.html">iOS</a> (2), <a href="../../../tags/objective_c.html">Objective-C</a> (1), <a href="../../../tags/sed.html">sed</a> (1), <a href="../../../tags/sphinx.html">sphinx</a> (1), <a href="../../../tags/teraterm.html">Teraterm</a> (1), <a href="../../../tags/tinkerer.html">Tinkerer</a> (3), <a href="../../../tags/vim.html">vim</a> (1), <a href="../../../tags/xcode.html">Xcode</a> (1), <a href="../../../tags/その他.html">その他</a> (3), <a href="../../../tags/ゆゆ式.html">ゆゆ式</a> (4)</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+    <h1>タグ</h1><a href="../../../tags/adk.html">ADK</a> (1), <a href="../../../tags/coconala.html">coconala</a> (1), <a href="../../../tags/gitlab.html">Gitlab</a> (8), <a href="../../../tags/homebrew.html">Homebrew</a> (1), <a href="../../../tags/ios.html">iOS</a> (2), <a href="../../../tags/objective_c.html">Objective-C</a> (1), <a href="../../../tags/sed.html">sed</a> (1), <a href="../../../tags/sphinx.html">sphinx</a> (1), <a href="../../../tags/teraterm.html">Teraterm</a> (1), <a href="../../../tags/tinkerer.html">Tinkerer</a> (3), <a href="../../../tags/vim.html">vim</a> (1), <a href="../../../tags/xcode.html">Xcode</a> (1), <a href="../../../tags/その他.html">その他</a> (3), <a href="../../../tags/ゆゆ式.html">ゆゆ式</a> (5)</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
         <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2013-2015 TakkuMattsu. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
 

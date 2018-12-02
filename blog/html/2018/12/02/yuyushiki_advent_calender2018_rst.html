@@ -1,0 +1,202 @@
+<!DOCTYPE html><!--[if lt IE 7]>      <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <title>ゆゆ式 Advent Calender 2018 3日目: MagicaVoxelで唯ちゃんを描いてみた &mdash; Life is like a development.</title>
+            <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/modern5.css" type="text/css">
+            <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+            <link rel="stylesheet" href="../../../_static/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" /><link rel="stylesheet" href="../../../_static/usaturn.css" type="text/css" /><!-- Load modernizr and JQuery -->
+        <script src="../../../_static/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="../../../_static/plugins.js"></script>
+        <script src="../../../_static/main.js"></script>
+        <link rel="search" title="検索" href="../../../search.html" /><link rel="next" title="Game Boy Advent Calendar 2017 3日目: 掘り起こしてみた" href="../../../2017/12/03/gameboy_advent_calender2017.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.7.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        SOURCELINK_SUFFIX: '.txt',
+        HAS_SOURCE:  true
+      };
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script><script type="text/javascript" src="../../../_static/translations.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script><meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@NorsteinBekkler" />
+    <meta property="og:title" content="Life is like a development." />
+    <meta property="og:description" content="ゆゆ式 Advent Calender 2018 3日目: MagicaVoxelで唯ちゃんを描いてみた" />
+    <meta property="og:url" content="http://www.nanao-a.com/blog/html/2018/12/02/yuyushiki_advent_calender2018_rst.html" />
+    
+        <meta property="og:image" content="https://user-images.githubusercontent.com/3356758/49336410-00b77700-f645-11e8-803f-656a43f3f0d8.png" />
+    
+</head>
+    <body role="document">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+      <div id="container"><header role="banner">
+            <hgroup>
+              <h1><a href="../../../index.html">Life is like a development.</a></h1><h2>メモ、備忘録</h2></hgroup>
+          </header>
+      <nav role="navigation">
+            <ul><li class="quicklink"><div class="rss">
+        <a href="../../../rss.html" title="Subscribe via RSS"><span class="fa fa-lg fa-rss"></span></a>
+    </div></li><li class="main-nav">
+                  <a href="../../../index.html">ホーム</a>
+                </li>
+              <li class="main-nav">
+                  <a href="../../../pages/about.html">About</a>
+                </li>
+              </ul>
+          </nav><div class="main-container" role="main"><div class="main wrapper body clearfix"><article role="article"><ul class="related clearfix">
+            <li class="left"></li>
+            <li class="right"><a href="../../../2017/12/03/gameboy_advent_calender2017.html">Game Boy Advent Calendar 2017 3日目: 掘り起こしてみた</a> &raquo; </li>
+        </ul>
+    <div class="timestamp postmeta">
+            <span>12月 02, 2018</span>
+        </div>
+    
+        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="ja">ツイート</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+    <div class="section" id="advent-calender-2018-3-magicavoxel">
+<h1>ゆゆ式 Advent Calender 2018 3日目: MagicaVoxelで唯ちゃんを描いてみた</h1>
+<p><a class="reference external" href="https://adventar.org/calendars/3137">ゆゆ式 Advent Calendar 2018</a> の3日目に記事になります。</p>
+<div id="more"> </div><p>年の瀬といえばゆゆ式 Advent Calendar ですね！</p>
+<p>Advent Calendar は余裕を持って書こうと去年思ったのですが前日に書いています...</p>
+<p>描き終わったらゆゆ式10周年記念展行くんだ！
+<a class="reference external" href="http://www.yuyushiki.net/news/hp0001/index01040000.html">http://www.yuyushiki.net/news/hp0001/index01040000.html</a></p>
+<div class="figure">
+<a class="reference internal image-reference" href="https://user-images.githubusercontent.com/3356758/49336080-98659700-f63e-11e8-9fe9-412ed7c77d52.jpg"><img alt="https://user-images.githubusercontent.com/3356758/49336080-98659700-f63e-11e8-9fe9-412ed7c77d52.jpg" src="https://user-images.githubusercontent.com/3356758/49336080-98659700-f63e-11e8-9fe9-412ed7c77d52.jpg" /></a>
+</div>
+<div class="section" id="magicavoxel">
+<h2>MagicaVoxelとは?</h2>
+<p>MagicaVoxelとは ephtracy さんが作っている簡単に3Dモデルが作れるツールです。神。
+<a class="reference external" href="https://ephtracy.github.io/">https://ephtracy.github.io/</a></p>
+<div class="figure">
+<a class="reference external image-reference" href="https://ephtracy.github.io/"><img alt="https://user-images.githubusercontent.com/3356758/49336159-01014380-f640-11e8-871c-0fea3dd70f77.png" src="https://user-images.githubusercontent.com/3356758/49336159-01014380-f640-11e8-871c-0fea3dd70f77.png" /></a>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>本題</h2>
+<p>まったく絵心がない自分が頑張って描きました。</p>
+<p><a class="reference external" href="http://graphig.net/detail/id/00000050131">グラフィグの唯ちゃん</a> を参考にしました。</p>
+<div class="figure">
+<a class="reference internal image-reference" href="https://user-images.githubusercontent.com/3356758/49336256-e16b1a80-f641-11e8-8439-73a7198d24f0.png"><img alt="https://user-images.githubusercontent.com/3356758/49336256-e16b1a80-f641-11e8-8439-73a7198d24f0.png" src="https://user-images.githubusercontent.com/3356758/49336256-e16b1a80-f641-11e8-8439-73a7198d24f0.png" /></a>
+</div>
+<div class="section" id="id2">
+<h3>動かしてみる</h3>
+<p>ちなみに mixamo を利用すれば動かすこともできます。</p>
+<p><a class="reference external" href="https://www.mixamo.com">https://www.mixamo.com</a></p>
+<p>作ったファイルをアップロードして...</p>
+<div class="figure">
+<a class="reference internal image-reference" href="https://user-images.githubusercontent.com/3356758/49336265-1b3c2100-f642-11e8-88ee-41cc45e13e85.gif"><img alt="https://user-images.githubusercontent.com/3356758/49336265-1b3c2100-f642-11e8-88ee-41cc45e13e85.gif" src="https://user-images.githubusercontent.com/3356758/49336265-1b3c2100-f642-11e8-88ee-41cc45e13e85.gif" /></a>
+</div>
+<p>楽しいw</p>
+<div class="figure">
+<a class="reference internal image-reference" href="https://user-images.githubusercontent.com/3356758/49336263-1aa38a80-f642-11e8-8c75-c1ee74df693e.gif"><img alt="https://user-images.githubusercontent.com/3356758/49336263-1aa38a80-f642-11e8-8c75-c1ee74df693e.gif" src="https://user-images.githubusercontent.com/3356758/49336263-1aa38a80-f642-11e8-8c75-c1ee74df693e.gif" /></a>
+</div>
+<p>いろんなモーションがたくさんある</p>
+<div class="figure">
+<a class="reference internal image-reference" href="https://user-images.githubusercontent.com/3356758/49336337-b5e92f80-f643-11e8-85ff-171c6b65b6a5.gif"><img alt="https://user-images.githubusercontent.com/3356758/49336337-b5e92f80-f643-11e8-85ff-171c6b65b6a5.gif" src="https://user-images.githubusercontent.com/3356758/49336337-b5e92f80-f643-11e8-85ff-171c6b65b6a5.gif" /></a>
+</div>
+<p>アクティブすぎるw</p>
+<div class="figure">
+<a class="reference internal image-reference" href="https://user-images.githubusercontent.com/3356758/49336373-59d2db00-f644-11e8-9959-5d8dc7dcffa5.gif"><img alt="https://user-images.githubusercontent.com/3356758/49336373-59d2db00-f644-11e8-9959-5d8dc7dcffa5.gif" src="https://user-images.githubusercontent.com/3356758/49336373-59d2db00-f644-11e8-9959-5d8dc7dcffa5.gif" /></a>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>まとめ</h2>
+<p>来年はこのモデルを使ってゲームを作りたいなーと。</p>
+<p>来年もゆゆ式するぞ！</p>
+</div>
+<div class="section" id="id4">
+<h2>補足</h2>
+<p>ちなみにほとんど、 <a class="reference external" href="https://twitter.com/henteko07">へんてこさん</a> が書かれた <a class="reference external" href="https://www.amazon.co.jp/dp/B07FNF8LJ6">まるごとわかる3Dドットモデリング入門 ～MagicaVoxelでつくる！ Unityで動かす！</a> を参考にしています。</p>
+<div class="figure">
+<a class="reference external image-reference" href="https://www.amazon.co.jp/dp/B07FNF8LJ6"><img alt="https://user-images.githubusercontent.com/3356758/49336202-1e82dd00-f641-11e8-8bc5-e5f32f02c0bc.png" src="https://user-images.githubusercontent.com/3356758/49336202-1e82dd00-f641-11e8-8bc5-e5f32f02c0bc.png" /></a>
+</div>
+</div>
+</div>
+
+    <div class="postmeta">
+        <div class="author">
+            <span>投稿者 TakkuMattsu</span>
+        </div>
+        <div class="categories">
+            <span>
+                カテゴリー:
+                <a href="../../../categories/adventcalender.html">AdventCalender</a></span>
+        </div>
+        <div class="tags">
+            <span>
+                タグ:
+                <a href="../../../tags/ゆゆ式.html">ゆゆ式</a></span>
+        </div>
+        </div>
+    <div id="disqus_thread"></div><script type="text/javascript">    var disqus_shortname = "takkumattsu";    var disqus_identifier = "2018/12/02/yuyushiki_advent_calender2018_rst";    disqus_thread();</script><noscript>Please enable JavaScript to view the    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<ul class="related clearfix">
+            <li class="left"></li>
+            <li class="right"><a href="../../../2017/12/03/gameboy_advent_calender2017.html">Game Boy Advent Calendar 2017 3日目: 掘り起こしてみた</a> &raquo; </li>
+        </ul></article><aside class="sidebar"><section><div class="gravatar">
+	<br>
+	<img src="http://www.gravatar.com/avatar/66d39d5006dfb1dc53e1763022107db9?s=150" alt="Gravatar"/> 
+	<br>
+	<p>TakkuMattsu</p>
+	<p>プログラマ。色々模索中。</p>
+</div></section><section><div class="widget">
+    <h1>最近の投稿</h1>
+    <ul><li>
+            <a href="#">ゆゆ式 Advent Calender 2018 3日目: MagicaVoxelで唯ちゃんを描いてみた</a>
+        </li><li>
+            <a href="../../../2017/12/03/gameboy_advent_calender2017.html">Game Boy Advent Calendar 2017 3日目: 掘り起こしてみた</a>
+        </li><li>
+            <a href="../../../2017/12/01/yuyushiki_advent_calender2017.html">ゆゆ式 Advent Calender 2017 2日目: 三上小又先生の一挙放送つぶやき</a>
+        </li><li>
+            <a href="../../../2016/12/02/yuyushiki_advent_calender2016.html">ゆゆ式 Advent Calendar 2016 3日目:ゆゆ式モブキャラ達</a>
+        </li><li>
+            <a href="../../../2016/07/02/the_reason_i_buy_a_souvenir_at_the_travel.html">自分が旅行先でお土産を買う理由</a>
+        </li><li>
+            <a href="../../../2015/12/02/yuyushiki_advent_calender2015.html">ゆゆ式 Advent Calendar 2015 3日目:2015年の三上小又先生のゆゆ式絵まとめ</a>
+        </li><li>
+            <a href="../../../2015/11/27/ci_daberi_night.html">モバイルCIダベリNightに行ってきた</a>
+        </li><li>
+            <a href="../../../2015/05/30/patisserie_cafe_aminchi.html">世田谷線沿線のおすすめカフェ「Patisserie Cafe aminchi」</a>
+        </li><li>
+            <a href="../../../2015/01/19/gitlab7_5_for_7_6.html">Redhat系(CentOS/Scientific Linux等)でGitlab7.5から7.6に上げる際に必要なlibkrb5-devについて</a>
+        </li><li>
+            <a href="../../../2014/12/02/yuyushiki_advent_calender2014.html">ゆゆ式 Advent Calender 2014 3日目:メガネゆずこ</a>
+        </li></ul>
+</div>
+</section><section><div class="widget">
+    <h1>カテゴリー</h1>
+    <ul><li><a href="../../../categories/adk.html">ADK</a> (1)</li><li><a href="../../../categories/adventcalender.html">AdventCalender</a> (5)</li><li><a href="../../../categories/gitlab.html">Gitlab</a> (8)</li><li><a href="../../../categories/homebrew.html">Homebrew</a> (1)</li><li><a href="../../../categories/ios.html">iOS</a> (2)</li><li><a href="../../../categories/objective_c.html">Objective-C</a> (1)</li><li><a href="../../../categories/sphinx.html">sphinx</a> (1)</li><li><a href="../../../categories/teraterm.html">Teraterm</a> (1)</li><li><a href="../../../categories/tinkerer.html">Tinkerer</a> (3)</li><li><a href="../../../categories/vim.html">vim</a> (1)</li><li><a href="../../../categories/xcode.html">Xcode</a> (1)</li><li><a href="../../../categories/その他.html">その他</a> (5)</li></ul>
+</div></section><section><div class="widget">
+    <h1>タグ</h1><a href="../../../tags/adk.html">ADK</a> (1), <a href="../../../tags/coconala.html">coconala</a> (1), <a href="../../../tags/gitlab.html">Gitlab</a> (8), <a href="../../../tags/homebrew.html">Homebrew</a> (1), <a href="../../../tags/ios.html">iOS</a> (2), <a href="../../../tags/objective_c.html">Objective-C</a> (1), <a href="../../../tags/sed.html">sed</a> (1), <a href="../../../tags/sphinx.html">sphinx</a> (1), <a href="../../../tags/teraterm.html">Teraterm</a> (1), <a href="../../../tags/tinkerer.html">Tinkerer</a> (3), <a href="../../../tags/vim.html">vim</a> (1), <a href="../../../tags/xcode.html">Xcode</a> (1), <a href="../../../tags/その他.html">その他</a> (3), <a href="../../../tags/ゆゆ式.html">ゆゆ式</a> (5)</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+
+        <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2013-2015 TakkuMattsu. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
+
+      </div> <!--! end of #container --><!--[if lt IE 7 ]>
+          <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+          <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+        <![endif]-->
+    </body>
+</html>

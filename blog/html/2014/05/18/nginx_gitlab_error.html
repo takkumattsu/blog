@@ -28,15 +28,16 @@
         <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
         <script src="../../../_static/plugins.js"></script>
         <script src="../../../_static/main.js"></script>
-        <link rel="next" title="ターミナルからXcodeを起動する" href="../../../2013/11/27/open_xcode_from_command.html" /><link rel="prev" title="Tinkererをビルドする際に’ascii’ codec can’t encode charactersになる問題" href="../20/tinkerer_jenkins_error.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+        <link rel="search" title="検索" href="../../../search.html" /><link rel="next" title="ターミナルからXcodeを起動する" href="../../../2013/11/27/open_xcode_from_command.html" /><link rel="prev" title="Tinkererをビルドする際に&#39;ascii&#39; codec can&#39;t encode charactersになる問題" href="../20/tinkerer_jenkins_error.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '1.5',
+        VERSION:     '1.7.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
+        SOURCELINK_SUFFIX: '.txt',
         HAS_SOURCE:  true
       };
-    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script><script type="text/javascript" src="../../../_static/translations.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script><meta name="twitter:card" content="summary" />
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script><script type="text/javascript" src="../../../_static/translations.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script><meta name="twitter:card" content="summary" />
     <meta name="twitter:creator" content="@NorsteinBekkler" />
     <meta property="og:title" content="Life is like a development." />
     <meta property="og:description" content="Webサーバをapacheからnginxへ移行した際のgitlabでhttp経由のcloneができない問題" />
@@ -65,7 +66,7 @@
                 </li>
               </ul>
           </nav><div class="main-container" role="main"><div class="main wrapper body clearfix"><article role="article"><ul class="related clearfix">
-            <li class="left"> &laquo; <a href="../20/tinkerer_jenkins_error.html">Tinkererをビルドする際に&#8217;ascii&#8217; codec can&#8217;t encode charactersになる問題</a></li>
+            <li class="left"> &laquo; <a href="../20/tinkerer_jenkins_error.html">Tinkererをビルドする際に'ascii' codec can't encode charactersになる問題</a></li>
             <li class="right"><a href="../../../2013/11/27/open_xcode_from_command.html">ターミナルからXcodeを起動する</a> &raquo; </li>
         </ul>
     <div class="timestamp postmeta">
@@ -80,13 +81,13 @@
 <p>今更ですがapacheからnginxへ移行してみました。</p>
 <p>その際にgitlabのhttp経由でのcloneができなくなったので、その時の対応メモしておきます。</p>
 <div id="more"> </div><p>nginxへ移行した後にgitlabのリポジトリをcloneしてくると以下のエラーがでました。</p>
-<div class="code bash highlight-python"><div class="highlight"><pre>git clone XXX
-Cloning into &#39;XXX&#39;...
-fatal: git fetch_pack: expected ACK/NAK, got &#39;
-0008NAK
-0022Counting objects: 104, done.
-002eCompressing objects: 100% (88/88), done.
-2004PACK&#39;
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">XXX</span>
+<span class="n">Cloning</span> <span class="n">into</span> <span class="s1">&#39;XXX&#39;</span><span class="o">...</span>
+<span class="n">fatal</span><span class="p">:</span> <span class="n">git</span> <span class="n">fetch_pack</span><span class="p">:</span> <span class="n">expected</span> <span class="n">ACK</span><span class="o">/</span><span class="n">NAK</span><span class="p">,</span> <span class="n">got</span> <span class="s1">&#39;</span>
+<span class="mi">0008</span><span class="n">NAK</span>
+<span class="mi">0022</span><span class="n">Counting</span> <span class="n">objects</span><span class="p">:</span> <span class="mi">104</span><span class="p">,</span> <span class="n">done</span><span class="o">.</span>
+<span class="mi">002</span><span class="n">eCompressing</span> <span class="n">objects</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">88</span><span class="o">/</span><span class="mi">88</span><span class="p">),</span> <span class="n">done</span><span class="o">.</span>
+<span class="mi">2004</span><span class="n">PACK</span><span class="s1">&#39;</span>
 </pre></div>
 </div>
 <p>現象としてはsshでのcloneは出来ていてhttp経由のみエラーになるというもの。</p>
@@ -96,10 +97,10 @@ fatal: git fetch_pack: expected ACK/NAK, got &#39;
 <p>さらに <a class="reference external" href="https://github.com/gitlabhq/gitlabhq/issues/5774">http clone doesnt work over nginx(gitlab latest master)#5774</a> にnginxのバージョンを1.4にしたら直ったとの報告があったので試してみることに。</p>
 <p>自分が利用しているSientific Linuxのyumで入れたnginxは1.0だったのでrpmを利用して最新のものにアップデートしました。</p>
 <p><a class="reference external" href="http://server-setting.info/centos/apache-nginx-1-rpm-nginx-install.html">Nginxを公式サイトから最新版をインストールする(CentOS/ScientificLinux編)</a> ここを参考に以下のようにしました。</p>
-<div class="code bash highlight-python"><div class="highlight"><pre># 自分の環境はSL6なので6のrpmを取得
-wget http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm
-sudo rpm -Uvh nginx-release-centos-6-0.el6.ngx.noarch.rpm
-sudo yum install nginx.x86_64
+<div class="code bash highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 自分の環境はSL6なので6のrpmを取得</span>
+<span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">nginx</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">centos</span><span class="o">/</span><span class="mi">6</span><span class="o">/</span><span class="n">noarch</span><span class="o">/</span><span class="n">RPMS</span><span class="o">/</span><span class="n">nginx</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">centos</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mf">0.</span><span class="n">el6</span><span class="o">.</span><span class="n">ngx</span><span class="o">.</span><span class="n">noarch</span><span class="o">.</span><span class="n">rpm</span>
+<span class="n">sudo</span> <span class="n">rpm</span> <span class="o">-</span><span class="n">Uvh</span> <span class="n">nginx</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">centos</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mf">0.</span><span class="n">el6</span><span class="o">.</span><span class="n">ngx</span><span class="o">.</span><span class="n">noarch</span><span class="o">.</span><span class="n">rpm</span>
+<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">nginx</span><span class="o">.</span><span class="n">x86_64</span>
 </pre></div>
 </div>
 <p>上記インストール後、nginxを再起動したところhttp経由でもcloneできるようになりました。</p>
@@ -123,7 +124,7 @@ sudo yum install nginx.x86_64
         </div>
     <div id="disqus_thread"></div><script type="text/javascript">    var disqus_shortname = "takkumattsu";    var disqus_identifier = "2014/05/18/nginx_gitlab_error";    disqus_thread();</script><noscript>Please enable JavaScript to view the    <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <ul class="related clearfix">
-            <li class="left"> &laquo; <a href="../20/tinkerer_jenkins_error.html">Tinkererをビルドする際に&#8217;ascii&#8217; codec can&#8217;t encode charactersになる問題</a></li>
+            <li class="left"> &laquo; <a href="../20/tinkerer_jenkins_error.html">Tinkererをビルドする際に'ascii' codec can't encode charactersになる問題</a></li>
             <li class="right"><a href="../../../2013/11/27/open_xcode_from_command.html">ターミナルからXcodeを起動する</a> &raquo; </li>
         </ul></article><aside class="sidebar"><section><div class="gravatar">
 	<br>
@@ -134,6 +135,8 @@ sudo yum install nginx.x86_64
 </div></section><section><div class="widget">
     <h1>最近の投稿</h1>
     <ul><li>
+            <a href="../../../2018/12/02/yuyushiki_advent_calender2018_rst.html">ゆゆ式 Advent Calender 2018 3日目: MagicaVoxelで唯ちゃんを描いてみた</a>
+        </li><li>
             <a href="../../../2017/12/03/gameboy_advent_calender2017.html">Game Boy Advent Calendar 2017 3日目: 掘り起こしてみた</a>
         </li><li>
             <a href="../../../2017/12/01/yuyushiki_advent_calender2017.html">ゆゆ式 Advent Calender 2017 2日目: 三上小又先生の一挙放送つぶやき</a>
@@ -151,15 +154,13 @@ sudo yum install nginx.x86_64
             <a href="../../../2015/01/19/gitlab7_5_for_7_6.html">Redhat系(CentOS/Scientific Linux等)でGitlab7.5から7.6に上げる際に必要なlibkrb5-devについて</a>
         </li><li>
             <a href="../../12/02/yuyushiki_advent_calender2014.html">ゆゆ式 Advent Calender 2014 3日目:メガネゆずこ</a>
-        </li><li>
-            <a href="../../11/16/my_homebrew_formula.html">Homebrewに自分用のformulaを作る</a>
         </li></ul>
 </div>
 </section><section><div class="widget">
     <h1>カテゴリー</h1>
-    <ul><li><a href="../../../categories/adk.html">ADK</a> (1)</li><li><a href="../../../categories/adventcalender.html">AdventCalender</a> (4)</li><li><a href="../../../categories/gitlab.html">Gitlab</a> (8)</li><li><a href="../../../categories/homebrew.html">Homebrew</a> (1)</li><li><a href="../../../categories/ios.html">iOS</a> (2)</li><li><a href="../../../categories/objective_c.html">Objective-C</a> (1)</li><li><a href="../../../categories/sphinx.html">sphinx</a> (1)</li><li><a href="../../../categories/teraterm.html">Teraterm</a> (1)</li><li><a href="../../../categories/tinkerer.html">Tinkerer</a> (3)</li><li><a href="../../../categories/vim.html">vim</a> (1)</li><li><a href="../../../categories/xcode.html">Xcode</a> (1)</li><li><a href="../../../categories/その他.html">その他</a> (5)</li></ul>
+    <ul><li><a href="../../../categories/adk.html">ADK</a> (1)</li><li><a href="../../../categories/adventcalender.html">AdventCalender</a> (5)</li><li><a href="../../../categories/gitlab.html">Gitlab</a> (8)</li><li><a href="../../../categories/homebrew.html">Homebrew</a> (1)</li><li><a href="../../../categories/ios.html">iOS</a> (2)</li><li><a href="../../../categories/objective_c.html">Objective-C</a> (1)</li><li><a href="../../../categories/sphinx.html">sphinx</a> (1)</li><li><a href="../../../categories/teraterm.html">Teraterm</a> (1)</li><li><a href="../../../categories/tinkerer.html">Tinkerer</a> (3)</li><li><a href="../../../categories/vim.html">vim</a> (1)</li><li><a href="../../../categories/xcode.html">Xcode</a> (1)</li><li><a href="../../../categories/その他.html">その他</a> (5)</li></ul>
 </div></section><section><div class="widget">
-    <h1>タグ</h1><a href="../../../tags/adk.html">ADK</a> (1), <a href="../../../tags/coconala.html">coconala</a> (1), <a href="../../../tags/gitlab.html">Gitlab</a> (8), <a href="../../../tags/homebrew.html">Homebrew</a> (1), <a href="../../../tags/ios.html">iOS</a> (2), <a href="../../../tags/objective_c.html">Objective-C</a> (1), <a href="../../../tags/sed.html">sed</a> (1), <a href="../../../tags/sphinx.html">sphinx</a> (1), <a href="../../../tags/teraterm.html">Teraterm</a> (1), <a href="../../../tags/tinkerer.html">Tinkerer</a> (3), <a href="../../../tags/vim.html">vim</a> (1), <a href="../../../tags/xcode.html">Xcode</a> (1), <a href="../../../tags/その他.html">その他</a> (3), <a href="../../../tags/ゆゆ式.html">ゆゆ式</a> (4)</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+    <h1>タグ</h1><a href="../../../tags/adk.html">ADK</a> (1), <a href="../../../tags/coconala.html">coconala</a> (1), <a href="../../../tags/gitlab.html">Gitlab</a> (8), <a href="../../../tags/homebrew.html">Homebrew</a> (1), <a href="../../../tags/ios.html">iOS</a> (2), <a href="../../../tags/objective_c.html">Objective-C</a> (1), <a href="../../../tags/sed.html">sed</a> (1), <a href="../../../tags/sphinx.html">sphinx</a> (1), <a href="../../../tags/teraterm.html">Teraterm</a> (1), <a href="../../../tags/tinkerer.html">Tinkerer</a> (3), <a href="../../../tags/vim.html">vim</a> (1), <a href="../../../tags/xcode.html">Xcode</a> (1), <a href="../../../tags/その他.html">その他</a> (3), <a href="../../../tags/ゆゆ式.html">ゆゆ式</a> (5)</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
         <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2013-2015 TakkuMattsu. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
 
