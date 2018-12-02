@@ -1,0 +1,23 @@
+--- env/lib/python3.6/site-packages/sphinxjp/usaturn.py	2018-04-30 01:02:47.000000000 +0900
++++ env/lib/python3.6/site-packages/sphinxjp/usaturn_patch.py	2018-04-30 01:03:16.000000000 +0900
+@@ -79,13 +79,16 @@
+ 
+ 
+ def setup(app):
+-    app.add_character_admonition = MethodType(add_character_admonition, app, Sphinx)
++    app.add_character_admonition = MethodType(add_character_admonition, app)
+ 
+     app.add_node(character_admonition,
+                  html=(html_visit_character_admonition, html_depart_character_admonition))
+     app.connect('builder-inited', on_builder_inited)
+     app.connect('build-finished', on_build_finished)
+ 
+-    app.add_character_admonition('usaturn',
+-                                 'https://pbs.twimg.com/profile_images/1365715199/md_400x400.png',
+-                                 u'うさたーん')
++    app.add_character_admonition('takkumattsu',
++                                 'http://www.gravatar.com/avatar/66d39d5006dfb1dc53e1763022107db9?s=52')
++    app.add_character_admonition('mironal',
++                                 'http://www.nanao-a.com/_image/mironal.jpeg')
++    app.add_character_admonition('henteko',
++                                 'http://www.nanao-a.com/_image/henteko.png')
