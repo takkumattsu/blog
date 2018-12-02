@@ -1,8 +1,8 @@
 .character-admonition > .icon {
     display: table-cell;
     vertical-align: top;
-    width: 64px;
-    height: 64px;
+    width: 96px;
+    height: 96px;
 }
 
 .character-admonition > .icon > .name {
@@ -19,11 +19,11 @@
 
 .character-admonition > .message-box.left {
     padding-left: 18px;
-    padding-right: 64px;
+    padding-right: 96px;
 }
 
 .character-admonition > .message-box.right {
-    padding-left: 64px;
+    padding-left: 96px;
     padding-right: 18px;
 }
 

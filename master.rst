@@ -4,6 +4,7 @@ Sitemap
 .. toctree::
    :maxdepth: 1
 
+   2018/12/02/yuyushiki_advent_calender2018_rst
    2017/12/03/gameboy_advent_calender2017
    2017/12/01/yuyushiki_advent_calender2017
    2016/12/02/yuyushiki_advent_calender2016

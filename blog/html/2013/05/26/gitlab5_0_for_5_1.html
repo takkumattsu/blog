@@ -28,15 +28,16 @@
         <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
         <script src="../../../_static/plugins.js"></script>
         <script src="../../../_static/main.js"></script>
-        <link rel="next" title="Gitlabを使ってみた" href="../12/use_gitlab.html" /><link rel="prev" title="Gitlabを5.1から5.2へあげてみた" href="gitlab5_1_for_5_2.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+        <link rel="search" title="検索" href="../../../search.html" /><link rel="next" title="Gitlabを使ってみた" href="../12/use_gitlab.html" /><link rel="prev" title="Gitlabを5.1から5.2へあげてみた" href="gitlab5_1_for_5_2.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '1.5',
+        VERSION:     '1.7.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
+        SOURCELINK_SUFFIX: '.txt',
         HAS_SOURCE:  true
       };
-    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script><script type="text/javascript" src="../../../_static/translations.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script><meta name="twitter:card" content="summary" />
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script><script type="text/javascript" src="../../../_static/translations.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script><meta name="twitter:card" content="summary" />
     <meta name="twitter:creator" content="@NorsteinBekkler" />
     <meta property="og:title" content="Life is like a development." />
     <meta property="og:description" content="Gitlabを5.0から5.1にあげてみた" />
@@ -86,21 +87,21 @@
 <p>基本的には <a class="reference external" href="https://github.com/gitlabhq/gitlabhq/blob/master/doc/update/5.0-to-5.1.md">公式の手順どおり。</a></p>
 <div class="section" id="stop-server">
 <h3>Stop Server</h3>
-<div class="highlight-bash"><div class="highlight"><pre>/etc/init.d/gitlab stop
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/etc/init.d/gitlab stop
 </pre></div>
 </div>
 </div>
 <div class="section" id="get-latest-code">
 <h3>Get latest Code</h3>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> /home/git/gitlab
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /home/git/gitlab
 sudo -u git -H git fetch
-sudo -u git -H git checkout 5-1-stable
+sudo -u git -H git checkout <span class="m">5</span>-1-stable
 </pre></div>
 </div>
 </div>
 <div class="section" id="update-gitlab-shell">
 <h3>Update gitlab-shell</h3>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> /home/git/gitlab-shell
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /home/git/gitlab-shell
 sudo -u git -H git fetch
 sudo -u git -H git checkout v1.3.0
 </pre></div>
@@ -108,19 +109,19 @@ sudo -u git -H git checkout v1.3.0
 </div>
 <div class="section" id="install-libs-migratins-etc">
 <h3>Install libs, migratins etc</h3>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nb">cd</span> /home/git/gitlab
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /home/git/gitlab
 sudo rm tmp/sockets/gitlab.socket
 sudo -u git -H cp config/puma.rb.example config/puma.rb
 
-sudo -u git -H bundle install --without development <span class="nb">test </span>postgres --deployment
-sudo -u git -H bundle <span class="nb">exec </span>rake db:migrate <span class="nv">RAILS_ENV</span><span class="o">=</span>production
-sudo -u git -H bundle <span class="nb">exec </span>rake migrate_merge_requests <span class="nv">RAILS_ENV</span><span class="o">=</span>production
+sudo -u git -H bundle install --without development <span class="nb">test</span> postgres --deployment
+sudo -u git -H bundle <span class="nb">exec</span> rake db:migrate <span class="nv">RAILS_ENV</span><span class="o">=</span>production
+sudo -u git -H bundle <span class="nb">exec</span> rake migrate_merge_requests <span class="nv">RAILS_ENV</span><span class="o">=</span>production
 </pre></div>
 </div>
 </div>
 <div class="section" id="update-init-d-script-with-a-new-one">
 <h3>Update init.d script with a new one</h3>
-<div class="highlight-bash"><div class="highlight"><pre>sudo rm /etc/init.d/gitlab
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo rm /etc/init.d/gitlab
 sudo curl --output /etc/init.d/gitlab https://raw.github.com/gitlabhq/gitlab-recipes/5-1-stable/init.d/gitlab
 sudo chmod +x /etc/init.d/gitlab
 </pre></div>
@@ -128,7 +129,7 @@ sudo chmod +x /etc/init.d/gitlab
 </div>
 <div class="section" id="mysql-grant-privileges">
 <h3>Mysql grant privileges</h3>
-<div class="highlight-bash"><div class="highlight"><pre>mysql -u root -p
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysql -u root -p
 mysql&gt; GRANT LOCK TABLES ON <span class="sb">`</span>gitlabhq_production<span class="sb">`</span>.* TO <span class="s1">&#39;gitlab&#39;</span>@<span class="s1">&#39;localhost&#39;</span><span class="p">;</span>
 mysql&gt; <span class="se">\q</span>
 </pre></div>
@@ -136,31 +137,31 @@ mysql&gt; <span class="se">\q</span>
 <p>ここでmysqlのパスを忘れる</p>
 <p><a class="reference external" href="http://blog.layer8.sh/ja/2011/12/09/mysql%E3%81%AEroot%E3%81%AE%E3%83%91%E3%82%B9%E3%83%AF%E3%83%BC%E3%83%89%E3%82%92%E5%BF%98%E3%82%8C%E3%81%9F%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%87%A6%E6%B3%95/">ここ</a> を参考に対処</p>
 <p>自分の環境の時の対処は以下</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c"># セーフモードでログイン</span>
-<span class="c"># 殺して</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># セーフモードでログイン</span>
+<span class="c1"># 殺して</span>
 killall mysqld
-<span class="c"># セーフモードで起動</span>
+<span class="c1"># セーフモードで起動</span>
 /usr/bin/mysqld_safe --user<span class="o">=</span>root --skip-grant-tables <span class="p">&amp;</span>
 </pre></div>
 </div>
 <p>さらにもう一つコンソールを立ち上げ</p>
-<div class="highlight-bash"><div class="highlight"><pre>mysql mydql
-mysql &gt; update user <span class="nb">set </span><span class="nv">Password</span><span class="o">=</span>null where <span class="nv">Host</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span> and <span class="nv">User</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysql mydql
+mysql &gt; update user <span class="nb">set</span> <span class="nv">Password</span><span class="o">=</span>null where <span class="nv">Host</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span> and <span class="nv">User</span><span class="o">=</span><span class="s1">&#39;root&#39;</span><span class="p">;</span>
 mysql &gt; <span class="se">\q</span>
-<span class="c"># mysqld 再起動</span>
+<span class="c1"># mysqld 再起動</span>
 /etc/rc.d/init.d/mysqld restart
-<span class="c"># パス設定(パスなしで入れるはず)</span>
+<span class="c1"># パス設定(パスなしで入れるはず)</span>
 mysql -u root
-mysql &gt; <span class="nb">set </span>password <span class="k">for</span> root@localhost<span class="o">=</span>password<span class="o">(</span><span class="s1">&#39;ぱすわーど&#39;</span><span class="o">)</span><span class="p">;</span>
+mysql &gt; <span class="nb">set</span> password <span class="k">for</span> root@localhost<span class="o">=</span>password<span class="o">(</span><span class="s1">&#39;ぱすわーど&#39;</span><span class="o">)</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>んで実行</p>
 </div>
 <div class="section" id="start-application">
 <h3>Start application</h3>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c"># ドキュメントでは以下だが</span>
-<span class="c"># sudo service gitlab start</span>
-<span class="c"># 自分は/etc/init.d/gitlab startで実行</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ドキュメントでは以下だが</span>
+<span class="c1"># sudo service gitlab start</span>
+<span class="c1"># 自分は/etc/init.d/gitlab startで実行</span>
 /etc/init.d/gitlab start
 </pre></div>
 </div>
@@ -177,11 +178,11 @@ mysql &gt; <span class="nb">set </span>password <span class="k">for</span> root@
 <h3>バーチャルホストの設定</h3>
 <div class="section" id="puma">
 <h4>pumaの設定</h4>
-<div class="highlight-bash"><div class="highlight"><pre>su git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>su git
 vi /home/git/gitlab/config/puma.rb
-<span class="c">#↓をコメントアウトする</span>
-<span class="c">#bind &quot;unix://#{application_path}/tmp/sockets/gitlab.socket&quot;</span>
-<span class="c">#以下を有効にする</span>
+<span class="c1">#↓をコメントアウトする</span>
+<span class="c1">#bind &quot;unix://#{application_path}/tmp/sockets/gitlab.socket&quot;</span>
+<span class="c1">#以下を有効にする</span>
 <span class="nb">bind</span> <span class="s1">&#39;tcp://0.0.0.0:ぽーと&#39;</span>
 </pre></div>
 </div>
@@ -190,7 +191,7 @@ vi /home/git/gitlab/config/puma.rb
 <div class="section" id="apache">
 <h4>Apacheの設定</h4>
 <p>/etc/httpd/conf.d/virtualhost.confに以下の内容のファイルを作成</p>
-<div class="highlight-bash"><div class="highlight"><pre>NameVirtualHost *:80
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NameVirtualHost *:80
 NameVirtualHost *:自分の設定したいぽーと
 
 &lt;VirtualHost *:80&gt;
@@ -206,12 +207,12 @@ NameVirtualHost *:自分の設定したいぽーと
 </div>
 <p>80は今まで通りにアクセスさせる</p>
 <p>さらに/etc/httpd/conf/httpd.confに以下を追加</p>
-<div class="highlight-bash"><div class="highlight"><pre>Listen 80
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Listen <span class="m">80</span>
 Listen <span class="s2">&quot;自分の設定したいぽーと&quot;</span>
 
-<span class="c">#</span>
-<span class="c"># Load config files from the config directory &quot;/etc/httpd/conf.d&quot;.</span>
-<span class="c">#</span>
+<span class="c1">#</span>
+<span class="c1"># Load config files from the config directory &quot;/etc/httpd/conf.d&quot;.</span>
+<span class="c1">#</span>
 Include conf.d/*.conf
 </pre></div>
 </div>
@@ -219,7 +220,7 @@ Include conf.d/*.conf
 </div>
 <div class="section" id="id5">
 <h4>再起動</h4>
-<div class="highlight-bash"><div class="highlight"><pre>/etc/init.d/httpd restart
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/etc/init.d/httpd restart
 /etc/init.d/gitlab stop
 /etc/init.d/gitlab sart
 </pre></div>
@@ -271,6 +272,8 @@ Include conf.d/*.conf
 </div></section><section><div class="widget">
     <h1>最近の投稿</h1>
     <ul><li>
+            <a href="../../../2018/12/02/yuyushiki_advent_calender2018_rst.html">ゆゆ式 Advent Calender 2018 3日目: MagicaVoxelで唯ちゃんを描いてみた</a>
+        </li><li>
             <a href="../../../2017/12/03/gameboy_advent_calender2017.html">Game Boy Advent Calendar 2017 3日目: 掘り起こしてみた</a>
         </li><li>
             <a href="../../../2017/12/01/yuyushiki_advent_calender2017.html">ゆゆ式 Advent Calender 2017 2日目: 三上小又先生の一挙放送つぶやき</a>
@@ -288,15 +291,13 @@ Include conf.d/*.conf
             <a href="../../../2015/01/19/gitlab7_5_for_7_6.html">Redhat系(CentOS/Scientific Linux等)でGitlab7.5から7.6に上げる際に必要なlibkrb5-devについて</a>
         </li><li>
             <a href="../../../2014/12/02/yuyushiki_advent_calender2014.html">ゆゆ式 Advent Calender 2014 3日目:メガネゆずこ</a>
-        </li><li>
-            <a href="../../../2014/11/16/my_homebrew_formula.html">Homebrewに自分用のformulaを作る</a>
         </li></ul>
 </div>
 </section><section><div class="widget">
     <h1>カテゴリー</h1>
-    <ul><li><a href="../../../categories/adk.html">ADK</a> (1)</li><li><a href="../../../categories/adventcalender.html">AdventCalender</a> (4)</li><li><a href="../../../categories/gitlab.html">Gitlab</a> (8)</li><li><a href="../../../categories/homebrew.html">Homebrew</a> (1)</li><li><a href="../../../categories/ios.html">iOS</a> (2)</li><li><a href="../../../categories/objective_c.html">Objective-C</a> (1)</li><li><a href="../../../categories/sphinx.html">sphinx</a> (1)</li><li><a href="../../../categories/teraterm.html">Teraterm</a> (1)</li><li><a href="../../../categories/tinkerer.html">Tinkerer</a> (3)</li><li><a href="../../../categories/vim.html">vim</a> (1)</li><li><a href="../../../categories/xcode.html">Xcode</a> (1)</li><li><a href="../../../categories/その他.html">その他</a> (5)</li></ul>
+    <ul><li><a href="../../../categories/adk.html">ADK</a> (1)</li><li><a href="../../../categories/adventcalender.html">AdventCalender</a> (5)</li><li><a href="../../../categories/gitlab.html">Gitlab</a> (8)</li><li><a href="../../../categories/homebrew.html">Homebrew</a> (1)</li><li><a href="../../../categories/ios.html">iOS</a> (2)</li><li><a href="../../../categories/objective_c.html">Objective-C</a> (1)</li><li><a href="../../../categories/sphinx.html">sphinx</a> (1)</li><li><a href="../../../categories/teraterm.html">Teraterm</a> (1)</li><li><a href="../../../categories/tinkerer.html">Tinkerer</a> (3)</li><li><a href="../../../categories/vim.html">vim</a> (1)</li><li><a href="../../../categories/xcode.html">Xcode</a> (1)</li><li><a href="../../../categories/その他.html">その他</a> (5)</li></ul>
 </div></section><section><div class="widget">
-    <h1>タグ</h1><a href="../../../tags/adk.html">ADK</a> (1), <a href="../../../tags/coconala.html">coconala</a> (1), <a href="../../../tags/gitlab.html">Gitlab</a> (8), <a href="../../../tags/homebrew.html">Homebrew</a> (1), <a href="../../../tags/ios.html">iOS</a> (2), <a href="../../../tags/objective_c.html">Objective-C</a> (1), <a href="../../../tags/sed.html">sed</a> (1), <a href="../../../tags/sphinx.html">sphinx</a> (1), <a href="../../../tags/teraterm.html">Teraterm</a> (1), <a href="../../../tags/tinkerer.html">Tinkerer</a> (3), <a href="../../../tags/vim.html">vim</a> (1), <a href="../../../tags/xcode.html">Xcode</a> (1), <a href="../../../tags/その他.html">その他</a> (3), <a href="../../../tags/ゆゆ式.html">ゆゆ式</a> (4)</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+    <h1>タグ</h1><a href="../../../tags/adk.html">ADK</a> (1), <a href="../../../tags/coconala.html">coconala</a> (1), <a href="../../../tags/gitlab.html">Gitlab</a> (8), <a href="../../../tags/homebrew.html">Homebrew</a> (1), <a href="../../../tags/ios.html">iOS</a> (2), <a href="../../../tags/objective_c.html">Objective-C</a> (1), <a href="../../../tags/sed.html">sed</a> (1), <a href="../../../tags/sphinx.html">sphinx</a> (1), <a href="../../../tags/teraterm.html">Teraterm</a> (1), <a href="../../../tags/tinkerer.html">Tinkerer</a> (3), <a href="../../../tags/vim.html">vim</a> (1), <a href="../../../tags/xcode.html">Xcode</a> (1), <a href="../../../tags/その他.html">その他</a> (3), <a href="../../../tags/ゆゆ式.html">ゆゆ式</a> (5)</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
         <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2013-2015 TakkuMattsu. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
 

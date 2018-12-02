@@ -15,7 +15,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <title>Tinkererをビルドする際に’ascii’ codec can’t encode charactersになる問題 &mdash; Life is like a development.</title>
+        <title>Tinkererをビルドする際に&#39;ascii&#39; codec can&#39;t encode charactersになる問題 &mdash; Life is like a development.</title>
             <link rel="stylesheet" href="../../../_static/normalize.css" type="text/css">
             <link rel="stylesheet" href="../../../_static/sphinx.css" type="text/css">
             <link rel="stylesheet" href="../../../_static/main.css" type="text/css">
@@ -28,18 +28,19 @@
         <script>window.jQuery || document.write('<script src="../../../_static/vendor/jquery-1.8.2.min.js"><\/script>')</script>
         <script src="../../../_static/plugins.js"></script>
         <script src="../../../_static/main.js"></script>
-        <link rel="next" title="Webサーバをapacheからnginxへ移行した際のgitlabでhttp経由のcloneができない問題" href="../18/nginx_gitlab_error.html" /><link rel="prev" title="GitlabをHTTPSにしたときにSSHアクセスできない問題" href="../22/gitlab_ssl_error.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
+        <link rel="search" title="検索" href="../../../search.html" /><link rel="next" title="Webサーバをapacheからnginxへ移行した際のgitlabでhttp経由のcloneができない問題" href="../18/nginx_gitlab_error.html" /><link rel="prev" title="GitlabをHTTPSにしたときにSSHアクセスできない問題" href="../22/gitlab_ssl_error.html" /><link rel="alternate" type="application/rss+xml" title="RSS" href="../../../rss.html" /><script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '1.5',
+        VERSION:     '1.7.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
+        SOURCELINK_SUFFIX: '.txt',
         HAS_SOURCE:  true
       };
-    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script><script type="text/javascript" src="../../../_static/translations.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script><meta name="twitter:card" content="summary" />
+    </script><script type="text/javascript" src="../../../_static/underscore.js"></script><script type="text/javascript" src="../../../_static/doctools.js"></script><script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script><script type="text/javascript" src="../../../_static/translations.js"></script><script type="text/javascript" src="../../../_static/disqus.js"></script><script type="text/javascript" src="../../../_static/google_analytics.js"></script><meta name="twitter:card" content="summary" />
     <meta name="twitter:creator" content="@NorsteinBekkler" />
     <meta property="og:title" content="Life is like a development." />
-    <meta property="og:description" content="Tinkererをビルドする際に’ascii’ codec can’t encode charactersになる問題" />
+    <meta property="og:description" content="Tinkererをビルドする際に&#39;ascii&#39; codec can&#39;t encode charactersになる問題" />
     <meta property="og:url" content="http://www.nanao-a.com/blog/html/2014/05/20/tinkerer_jenkins_error.html" />
     
         <meta property="og:image" content="http://www.nanao-a.com/_image/ogp/lld.png" />
@@ -76,46 +77,46 @@
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
     <div class="section" id="tinkerer-ascii-codec-can-t-encode-characters">
-<h1>Tinkererをビルドする際に&#8217;ascii&#8217; codec can&#8217;t encode charactersになる問題</h1>
+<h1>Tinkererをビルドする際に'ascii' codec can't encode charactersになる問題</h1>
 <p>Tinkererをjenkinsで行うとエラーになって困っていたところ</p>
 <p>Sphinxのスペシャリストが揃う「新宿Bookathon」で聞いてみたら一瞬で解決したのでメモとして残しておきます。</p>
 <div id="more"> </div><div class="section" id="id1">
 <h2>問題になっていたこと</h2>
 <ul class="simple">
-<li>jenkinsでtinker -bを実施すると&#8217;ascii&#8217; codec can&#8217;t encode charactersが発生してビルドが失敗してしまう</li>
+<li>jenkinsでtinker -bを実施すると'ascii' codec can't encode charactersが発生してビルドが失敗してしまう</li>
 </ul>
 <a class="reference internal image-reference" href="../../../_images/jenkins_error.png"><img alt="../../../_images/jenkins_error.png" src="../../../_images/jenkins_error.png" style="width: 456.5px; height: 178.5px;" /></a>
 </div>
 <div class="section" id="id2">
 <h2>原因</h2>
 <p>ログを見てみると</p>
-<div class="code text highlight-python"><div class="highlight"><pre># Sphinx version: 1.2.2
-# Python version: 2.6.6
-# Docutils version: 0.11 release
-# Jinja2 version: 2.7.2
-# Loaded extensions:
-#   tinkerer.ext.disqus from /usr/lib/python2.6/site-packages/tinkerer/ext/disqus.pyc
-#   sphinxcontrib.gist from /usr/lib/python2.6/site-packages/sphinxcontrib/gist/__init__.pyc
-#   sphinxcontrib.blockdiag from /usr/lib/python2.6/site-packages/sphinxcontrib/blockdiag.pyc
-#   sphinxcontrib.twitter from /usr/lib/python2.6/site-packages/sphinxcontrib/twitter/__init__.pyc
-#   sphinx.ext.oldcmarkup from /usr/lib/python2.6/site-packages/Sphinx-1.2.2-py2.6.egg/sphinx/ext/oldcmarkup.pyc
-#   tinkerer.ext.blog from /usr/lib/python2.6/site-packages/tinkerer/ext/blog.pyc
-Traceback (most recent call last):
-  File &quot;/usr/lib/python2.6/site-packages/Sphinx-1.2.2-py2.6.egg/sphinx/cmdline.py&quot;, line 254, in main
-    app.build(force_all, filenames)
-  File &quot;/usr/lib/python2.6/site-packages/Sphinx-1.2.2-py2.6.egg/sphinx/application.py&quot;, line 212, in build
-    self.builder.build_update()
-  File &quot;/usr/lib/python2.6/site-packages/Sphinx-1.2.2-py2.6.egg/sphinx/builders/__init__.py&quot;, line 214, in build_update
-    &#39;out of date&#39; % len(to_build))
-  File &quot;/usr/lib/python2.6/site-packages/Sphinx-1.2.2-py2.6.egg/sphinx/builders/__init__.py&quot;, line 279, in build
-    self.finish()
-  File &quot;/usr/lib/python2.6/site-packages/Sphinx-1.2.2-py2.6.egg/sphinx/builders/html.py&quot;, line 454, in finish
-    self.handle_page(pagename, context, template)
-  File &quot;/usr/lib/python2.6/site-packages/Sphinx-1.2.2-py2.6.egg/sphinx/builders/html.py&quot;, line 780, in handle_page
-    f = codecs.open(outfilename, &#39;w&#39;, encoding, &#39;xmlcharrefreplace&#39;)
-  File &quot;/usr/lib64/python2.6/codecs.py&quot;, line 881, in open
-    file = __builtin__.open(filename, mode, buffering)
-UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 47-49: ordinal not in range(128)
+<div class="code text highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sphinx version: 1.2.2</span>
+<span class="c1"># Python version: 2.6.6</span>
+<span class="c1"># Docutils version: 0.11 release</span>
+<span class="c1"># Jinja2 version: 2.7.2</span>
+<span class="c1"># Loaded extensions:</span>
+<span class="c1">#   tinkerer.ext.disqus from /usr/lib/python2.6/site-packages/tinkerer/ext/disqus.pyc</span>
+<span class="c1">#   sphinxcontrib.gist from /usr/lib/python2.6/site-packages/sphinxcontrib/gist/__init__.pyc</span>
+<span class="c1">#   sphinxcontrib.blockdiag from /usr/lib/python2.6/site-packages/sphinxcontrib/blockdiag.pyc</span>
+<span class="c1">#   sphinxcontrib.twitter from /usr/lib/python2.6/site-packages/sphinxcontrib/twitter/__init__.pyc</span>
+<span class="c1">#   sphinx.ext.oldcmarkup from /usr/lib/python2.6/site-packages/Sphinx-1.2.2-py2.6.egg/sphinx/ext/oldcmarkup.pyc</span>
+<span class="c1">#   tinkerer.ext.blog from /usr/lib/python2.6/site-packages/tinkerer/ext/blog.pyc</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;/usr/lib/python2.6/site-packages/Sphinx-1.2.2-py2.6.egg/sphinx/cmdline.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">254</span><span class="p">,</span> <span class="ow">in</span> <span class="n">main</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">force_all</span><span class="p">,</span> <span class="n">filenames</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s2">&quot;/usr/lib/python2.6/site-packages/Sphinx-1.2.2-py2.6.egg/sphinx/application.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">212</span><span class="p">,</span> <span class="ow">in</span> <span class="n">build</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">build_update</span><span class="p">()</span>
+  <span class="n">File</span> <span class="s2">&quot;/usr/lib/python2.6/site-packages/Sphinx-1.2.2-py2.6.egg/sphinx/builders/__init__.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">214</span><span class="p">,</span> <span class="ow">in</span> <span class="n">build_update</span>
+    <span class="s1">&#39;out of date&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">to_build</span><span class="p">))</span>
+  <span class="n">File</span> <span class="s2">&quot;/usr/lib/python2.6/site-packages/Sphinx-1.2.2-py2.6.egg/sphinx/builders/__init__.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">279</span><span class="p">,</span> <span class="ow">in</span> <span class="n">build</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+  <span class="n">File</span> <span class="s2">&quot;/usr/lib/python2.6/site-packages/Sphinx-1.2.2-py2.6.egg/sphinx/builders/html.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">454</span><span class="p">,</span> <span class="ow">in</span> <span class="n">finish</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">handle_page</span><span class="p">(</span><span class="n">pagename</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">template</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s2">&quot;/usr/lib/python2.6/site-packages/Sphinx-1.2.2-py2.6.egg/sphinx/builders/html.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">780</span><span class="p">,</span> <span class="ow">in</span> <span class="n">handle_page</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">outfilename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="p">,</span> <span class="s1">&#39;xmlcharrefreplace&#39;</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s2">&quot;/usr/lib64/python2.6/codecs.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">881</span><span class="p">,</span> <span class="ow">in</span> <span class="nb">open</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">__builtin__</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">buffering</span><span class="p">)</span>
+<span class="ne">UnicodeEncodeError</span><span class="p">:</span> <span class="s1">&#39;ascii&#39;</span> <span class="n">codec</span> <span class="n">can</span><span class="s1">&#39;t encode characters in position 47-49: ordinal not in range(128)</span>
 </pre></div>
 </div>
 <p>ログからファイルオープンで失敗している。しかも文字コードの問題で。</p>
@@ -173,6 +174,8 @@ UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in positio
 </div></section><section><div class="widget">
     <h1>最近の投稿</h1>
     <ul><li>
+            <a href="../../../2018/12/02/yuyushiki_advent_calender2018_rst.html">ゆゆ式 Advent Calender 2018 3日目: MagicaVoxelで唯ちゃんを描いてみた</a>
+        </li><li>
             <a href="../../../2017/12/03/gameboy_advent_calender2017.html">Game Boy Advent Calendar 2017 3日目: 掘り起こしてみた</a>
         </li><li>
             <a href="../../../2017/12/01/yuyushiki_advent_calender2017.html">ゆゆ式 Advent Calender 2017 2日目: 三上小又先生の一挙放送つぶやき</a>
@@ -190,15 +193,13 @@ UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in positio
             <a href="../../../2015/01/19/gitlab7_5_for_7_6.html">Redhat系(CentOS/Scientific Linux等)でGitlab7.5から7.6に上げる際に必要なlibkrb5-devについて</a>
         </li><li>
             <a href="../../12/02/yuyushiki_advent_calender2014.html">ゆゆ式 Advent Calender 2014 3日目:メガネゆずこ</a>
-        </li><li>
-            <a href="../../11/16/my_homebrew_formula.html">Homebrewに自分用のformulaを作る</a>
         </li></ul>
 </div>
 </section><section><div class="widget">
     <h1>カテゴリー</h1>
-    <ul><li><a href="../../../categories/adk.html">ADK</a> (1)</li><li><a href="../../../categories/adventcalender.html">AdventCalender</a> (4)</li><li><a href="../../../categories/gitlab.html">Gitlab</a> (8)</li><li><a href="../../../categories/homebrew.html">Homebrew</a> (1)</li><li><a href="../../../categories/ios.html">iOS</a> (2)</li><li><a href="../../../categories/objective_c.html">Objective-C</a> (1)</li><li><a href="../../../categories/sphinx.html">sphinx</a> (1)</li><li><a href="../../../categories/teraterm.html">Teraterm</a> (1)</li><li><a href="../../../categories/tinkerer.html">Tinkerer</a> (3)</li><li><a href="../../../categories/vim.html">vim</a> (1)</li><li><a href="../../../categories/xcode.html">Xcode</a> (1)</li><li><a href="../../../categories/その他.html">その他</a> (5)</li></ul>
+    <ul><li><a href="../../../categories/adk.html">ADK</a> (1)</li><li><a href="../../../categories/adventcalender.html">AdventCalender</a> (5)</li><li><a href="../../../categories/gitlab.html">Gitlab</a> (8)</li><li><a href="../../../categories/homebrew.html">Homebrew</a> (1)</li><li><a href="../../../categories/ios.html">iOS</a> (2)</li><li><a href="../../../categories/objective_c.html">Objective-C</a> (1)</li><li><a href="../../../categories/sphinx.html">sphinx</a> (1)</li><li><a href="../../../categories/teraterm.html">Teraterm</a> (1)</li><li><a href="../../../categories/tinkerer.html">Tinkerer</a> (3)</li><li><a href="../../../categories/vim.html">vim</a> (1)</li><li><a href="../../../categories/xcode.html">Xcode</a> (1)</li><li><a href="../../../categories/その他.html">その他</a> (5)</li></ul>
 </div></section><section><div class="widget">
-    <h1>タグ</h1><a href="../../../tags/adk.html">ADK</a> (1), <a href="../../../tags/coconala.html">coconala</a> (1), <a href="../../../tags/gitlab.html">Gitlab</a> (8), <a href="../../../tags/homebrew.html">Homebrew</a> (1), <a href="../../../tags/ios.html">iOS</a> (2), <a href="../../../tags/objective_c.html">Objective-C</a> (1), <a href="../../../tags/sed.html">sed</a> (1), <a href="../../../tags/sphinx.html">sphinx</a> (1), <a href="../../../tags/teraterm.html">Teraterm</a> (1), <a href="../../../tags/tinkerer.html">Tinkerer</a> (3), <a href="../../../tags/vim.html">vim</a> (1), <a href="../../../tags/xcode.html">Xcode</a> (1), <a href="../../../tags/その他.html">その他</a> (3), <a href="../../../tags/ゆゆ式.html">ゆゆ式</a> (4)</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
+    <h1>タグ</h1><a href="../../../tags/adk.html">ADK</a> (1), <a href="../../../tags/coconala.html">coconala</a> (1), <a href="../../../tags/gitlab.html">Gitlab</a> (8), <a href="../../../tags/homebrew.html">Homebrew</a> (1), <a href="../../../tags/ios.html">iOS</a> (2), <a href="../../../tags/objective_c.html">Objective-C</a> (1), <a href="../../../tags/sed.html">sed</a> (1), <a href="../../../tags/sphinx.html">sphinx</a> (1), <a href="../../../tags/teraterm.html">Teraterm</a> (1), <a href="../../../tags/tinkerer.html">Tinkerer</a> (3), <a href="../../../tags/vim.html">vim</a> (1), <a href="../../../tags/xcode.html">Xcode</a> (1), <a href="../../../tags/その他.html">その他</a> (3), <a href="../../../tags/ゆゆ式.html">ゆゆ式</a> (5)</div></section></aside></div> <!-- #main --></div> <!-- #main-container -->
 
         <div class="footer-container" role="contentinfo"><footer class="wrapper">&copy; Copyright 2013-2015 TakkuMattsu. Powered by <a href="http://www.tinkerer.me/">Tinkerer</a> and <a href="http://sphinx.pocoo.org/">Sphinx</a>.</footer></div> <!-- footer-container -->
 
